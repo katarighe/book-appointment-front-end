@@ -92,8 +92,8 @@ function Signup() {
           <div className='col-3 my-3'>
             <BrandLogo />
           </div>
-          <h2> Welcome back,</h2>
-          <p>Welcome back! Please enter your details.</p>
+          <h2> Welcome,</h2>
+          <p>Please create account to start</p>
 
           <form
             onSubmit={handleSignUp}
