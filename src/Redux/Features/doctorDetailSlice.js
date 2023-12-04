@@ -26,5 +26,5 @@ const initialState = {
     },
   });
 
-  export default DoctorDetailSlice.reducers;
+  export default DoctorDetailSlice.reducer;
   
