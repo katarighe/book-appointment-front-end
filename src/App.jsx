@@ -1,16 +1,18 @@
 // import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import SideNav from "./components/Nav";
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-      </div>
-      <h1>Appointment App</h1>
+      <BrowserRouter>
+        <SideNav />
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
