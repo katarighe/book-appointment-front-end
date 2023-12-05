@@ -1,19 +1,29 @@
 import React, { useRef, useState } from 'react';
 import './Auths.scss';
 import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BrandLogo from '../../components/BrandLogo';
 import RightSide from '../../components/RightSide';
 import { Spinner } from 'react-bootstrap';
-import axios from 'axios';
+import * as API from '../../api/apis';
+import { useSweetAlert } from '../../Hooks/useSweetAlert';
+import { useDispatch } from 'react-redux';
+import { useCookies } from '../../Hooks/cookiesHook';
+import { useGlobalHooks } from '../../Hooks/globalHooks';
+import { userAuthData } from '../../Redux/Features/userAuthSlice';
 
 function Signin() {
   const [passwordType, setPasswordType] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({ error: false, errMessage: '' });
   const [userData, setUserData] = useState({ email: '', password: '' });
+  const { loading, setLoading, errors, setErrors } = useGlobalHooks();
 
+  const navigate = useNavigate();
+
+  const { setCookies } = useCookies();
+
+  const dispatch = useDispatch();
   const inputRef = useRef(null);
+  const { showAlert } = useSweetAlert();
 
   const showPassword = (id) => {
     setPasswordType((prev) => ({ ...passwordType, [id]: !prev[id] }));
@@ -27,13 +37,26 @@ function Signin() {
   const handleSignIn = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await axios
-      .post('http://127.0.0.1:3000/v1/users/login', userData)
+    API.SignIn(userData)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+
+        const userToken = res.data.token;
+        showAlert('User Signed in successfully');
+        setCookies('bookADocUserToken', userToken);
+        dispatch(userAuthData(res.data.user_details));
+
+        setLoading(false);
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
+
+        setErrors({
+          error: true,
+          errMessage: err.response.data.error_message.email,
+        });
       });
   };
 

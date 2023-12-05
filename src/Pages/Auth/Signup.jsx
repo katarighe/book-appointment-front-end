@@ -6,7 +6,11 @@ import { Spinner } from 'react-bootstrap';
 import BrandLogo from '../../components/BrandLogo';
 import RightSide from '../../components/RightSide';
 import './Auths.scss';
-import axios from 'axios';
+import * as API from '../../api/apis';
+import { userAuthData } from '../../Redux/Features/userAuthSlice';
+import { useGlobalHooks } from '../../Hooks/globalHooks';
+import { useSweetAlert } from '../../Hooks/useSweetAlert';
+import { useCookies } from '../../Hooks/cookiesHook';
 
 const initialState = {
   name: '',
@@ -17,17 +21,16 @@ const initialState = {
 
 function Signup() {
   const [passwordType, setPasswordType] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({ error: false, errMessage: '' });
   const [userData, setUserData] = useState(initialState);
+  const { loading, setLoading, errors, setErrors } = useGlobalHooks();
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const { setCookies } = useCookies();
+  const { setCookies } = useCookies();
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const inputRef = useRef(null);
-  // const { Toast } = useSweetAlert();
+  const { showAlert } = useSweetAlert();
 
   const showPassword = (id) => {
     setPasswordType((prev) => ({ ...passwordType, [id]: !prev[id] }));
@@ -77,19 +80,33 @@ function Signup() {
     setLoading(true);
     const validInput = validateInput(userData);
     console.log(userData);
+
     // if the input isn't validated, return
     if (!validInput) {
       setLoading(false);
       return;
     }
 
-    await axios
-      .post('http://127.0.0.1:3000/v1/users/signup', userData)
+    API.SignUp(userData)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+
+        const userToken = res.data.token;
+        showAlert('User Created successfully');
+        setCookies('bookADocUserToken', userToken);
+        dispatch(userAuthData(res.data.user_details));
+
+        setLoading(false);
+        navigate('/signin');
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
+
+        setErrors({
+          error: true,
+          errMessage: err.response.data.error_message.email,
+        });
       });
   };
 
@@ -250,17 +267,9 @@ function Signup() {
 
             <div className=' col-12 text-center'>
               <button className='main-btn col-12 mt-2' type='submit'>
-                Sign Up
-                {/* {loading ? <Spinner /> : 'Sign Up'} */}
+                {loading ? <Spinner /> : 'Sign Up'}
               </button>
-              {errors.errMessage === 'empty' ? (
-                <span className='error_message'>
-                  {' '}
-                  All field must be filled{' '}
-                </span>
-              ) : (
-                <span className='error_message'> {errors.errMessage} </span>
-              )}
+              {<span className='error_message'> {errors.errMessage} </span>}
             </div>
 
             <p className='mt-2 '>
