@@ -14,9 +14,11 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import userAuthSlice from '../Features/userAuthSlice';
+import bookDoctorReducer from '../bookDoctor/doctorActions';
 
 const allReducers = combineReducers({
   userAuthSlice,
+  bookDoctorReducer,
 });
 
 const mainStores = configureStore({

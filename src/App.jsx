@@ -3,6 +3,7 @@ import generalRoutes from './Layout/Routes/GeneralRutes';
 import dashboardRoutes from './Layout/Routes/DashboardRoutes';
 import DashboardLayout from './Layout/DashboardLayout';
 import NotFound from './Pages/404/NotFound';
+import Details from './components/Doctors/Details';
 
 function App() {
   return (
@@ -25,8 +26,19 @@ function App() {
           ))}
 
           <Route path='*' element={<NotFound />} />
+
+          <Route
+      path="doctor_details/:id"
+      element={(
+        <PrivateRoute>
+          <Details />
+        </PrivateRoute>
+      )}
+    />
+    
         </Routes>
       </Router>
+      
     </main>
   );
 }
