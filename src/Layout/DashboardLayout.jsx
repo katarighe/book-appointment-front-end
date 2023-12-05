@@ -3,6 +3,7 @@
 import { useSelector } from 'react-redux';
 import { selectUserData } from '../Redux/Features/userAuthSlice';
 import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const DashboardLayout = ({ children }) => {
   const { isLoggedIn } = useSelector(selectUserData);
@@ -22,6 +23,10 @@ const DashboardLayout = ({ children }) => {
       </article>
     </main>
   );
+};
+
+DashboardLayout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default DashboardLayout;

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './Auths.scss';
 import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';

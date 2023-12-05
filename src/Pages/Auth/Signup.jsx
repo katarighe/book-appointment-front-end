@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -42,13 +42,7 @@ function Signup() {
   };
 
   // Validate input
-  const validateInput = ({
-    name,
-    email,
-    password,
-    password_confirmation,
-    checked,
-  }) => {
+  const validateInput = ({ name, email, password, password_confirmation }) => {
     if (
       name === '' ||
       email === '' ||
