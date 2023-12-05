@@ -55,7 +55,7 @@ function Details() {
       </div>
       <div className="back">
         <Link to="/">
-          <button type="button" className={classes.btn1}>
+          <button type="button" className="">
             <i className="fa-solid fa-caret-left" />
           </button>
         </Link>
