@@ -1,4 +1,3 @@
-import React from 'react';
 import '../Pages/Auth/Auths.scss';
 
 function RightSide() {

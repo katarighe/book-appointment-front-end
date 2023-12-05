@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import './Notfound.scss';
 import { Link } from 'react-router-dom';
 const NotFound = () => {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './Auths.scss';
 import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
@@ -7,8 +7,8 @@ import RightSide from '../../components/RightSide';
 
 function Signin() {
   const [passwordType, setPasswordType] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({ error: false, errMessage: '' });
+  //const [loading, setLoading] = useState(false);
+  const [errors] = useState({ error: false, errMessage: '' });
   const [userData, setUserData] = useState({ email: '', password: '' });
 
   const inputRef = useRef(null);

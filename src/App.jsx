@@ -30,9 +30,8 @@ function App() {
           <Route
       path="doctor_details/:id"
       element={(
-        <PrivateRoute>
           <Details />
-        </PrivateRoute>
+        
       )}
     />
     

@@ -1,8 +1,6 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import BrandLogo from '../../components/BrandLogo';
 import RightSide from '../../components/RightSide';
 import './Auths.scss';
@@ -16,7 +14,7 @@ const initialState = {
 
 function Signup() {
   const [passwordType, setPasswordType] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const [errors, setErrors] = useState({ error: false, errMessage: '' });
   const [userData, setUserData] = useState(initialState);
 
@@ -43,7 +41,7 @@ function Signup() {
     email,
     password,
     confirmPass,
-    checked,
+    //checked,
   }) => {
     if (
       companyName === '' ||

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchOneDoctor } from '../../Redux/bookDoctor/doctorThunks';
-//import classes from './Detail.module.css';
+import classes from './Detail.module.css';
 
 function Details() {
   const { id } = useParams();
