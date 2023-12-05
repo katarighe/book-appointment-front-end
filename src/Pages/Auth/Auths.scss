@@ -18,11 +18,23 @@
       font-size: 1.3rem;
     }
 
+    .goBack {
+      margin-top: 4em;
+
+      a {
+        color: var(--black);
+        font-size: 1.4rem;
+      }
+
+      font-size: 0.8rem;
+    }
+
     .form {
       // width: 100%;
       p {
         color: var(--lightGrey);
       }
+
       h5 {
         margin: 0;
       }
@@ -40,21 +52,13 @@
         a {
           color: var(--mainColor);
         }
+
         font-size: 0.8rem;
       }
 
       .Login {
         color: var(--Grey1);
       }
-    }
-
-    .goBack {
-      margin-top: 4em;
-      a {
-        color: var(--black);
-        font-size: 1.4rem;
-      }
-      font-size: 0.8rem;
     }
   }
 
@@ -80,17 +84,22 @@
   header {
     width: 100%;
   }
+
   .aside {
     width: 100%;
+
     h2 {
       font-weight: 700;
       font-size: 2rem;
     }
+
     .form {
       width: 100%;
+
       p {
         color: var(--lightGrey);
       }
+
       h5 {
         margin: 0;
       }
