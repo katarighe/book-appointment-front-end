@@ -1,7 +1,13 @@
 // store.js
- import { createStore } from 'redux';
- import rootReducer from './reducers'; 
+ import { combineReducers, createStore } from 'redux';
+ import DoctorDetailReducer from './doctorDetailSlice'; 
 
-const store = createStore(rootReducer);
+
+
+const reducer = combineReducers({
+    DoctorDetailReducer,
+});
+
+const store = createStore(reducer);
 
 export default store;
