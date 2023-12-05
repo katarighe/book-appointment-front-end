@@ -6,12 +6,13 @@ import { Spinner } from 'react-bootstrap';
 import BrandLogo from '../../components/BrandLogo';
 import RightSide from '../../components/RightSide';
 import './Auths.scss';
+import axios from 'axios';
 
 const initialState = {
-  companyName: '',
+  name: '',
   email: '',
   password: '',
-  confirmPass: '',
+  password_confirmation: '',
 };
 
 function Signup() {
@@ -39,17 +40,17 @@ function Signup() {
 
   // Validate input
   const validateInput = ({
-    companyName,
+    name,
     email,
     password,
-    confirmPass,
+    password_confirmation,
     checked,
   }) => {
     if (
-      companyName === '' ||
+      name === '' ||
       email === '' ||
       password === '' ||
-      confirmPass === ''
+      password_confirmation === ''
     ) {
       setErrors({ error: true, errMessage: 'empty' });
       return false;
@@ -61,8 +62,8 @@ function Signup() {
       }
     }
 
-    if (confirmPass !== password) {
-      setErrors({ error: true, errMessage: 'confirmpass' });
+    if (password_confirmation !== password) {
+      setErrors({ error: true, errMessage: 'password_confirmation' });
       return false;
     }
 
@@ -75,12 +76,21 @@ function Signup() {
     e.preventDefault();
     setLoading(true);
     const validInput = validateInput(userData);
-
+    console.log(userData);
     // if the input isn't validated, return
     if (!validInput) {
       setLoading(false);
       return;
     }
+
+    await axios
+      .post('http://127.0.0.1:3000/v1/users/signup', userData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -108,10 +118,10 @@ function Signup() {
                 <input
                   ref={inputRef}
                   type='text'
-                  id='companyName'
+                  id='name'
                   name='Company Name'
                   onChange={handleChange}
-                  defaultValue={userData.companyName}
+                  defaultValue={userData.name}
                   placeholder=' Enter company name'
                   required
                   className={` formInput ${
@@ -190,7 +200,7 @@ function Signup() {
               </div>
 
               <div className='mt-3'>
-                <label htmlFor='confirmPass' className='labelTitle'>
+                <label htmlFor='password_confirmation' className='labelTitle'>
                   Re-enter Password
                 </label>
                 <div
@@ -198,32 +208,36 @@ function Signup() {
                 >
                   <input
                     ref={inputRef}
-                    id='confirmPass'
-                    type={!passwordType['confirmPass'] ? 'password' : 'text'}
+                    id='password_confirmation'
+                    type={
+                      !passwordType['password_confirmation']
+                        ? 'password'
+                        : 'text'
+                    }
                     name='password'
                     onChange={handleChange}
-                    defaultValue={userData.confirmPass}
+                    defaultValue={userData.password_confirmation}
                     placeholder='Re-enter password'
                     required
                     className={`formInput  ${
-                      errors.errMessage === 'confirmpass' ||
+                      errors.errMessage === 'password_confirmation' ||
                       errors.errMessage === 'empty'
                         ? 'errors'
                         : ''
                     } form-control `}
                   />{' '}
                   <div
-                    onClick={() => showPassword('confirmPass')}
+                    onClick={() => showPassword('password_confirmation')}
                     className='icon'
                   >
-                    {!passwordType['confirmPass'] ? (
+                    {!passwordType['password_confirmation'] ? (
                       <BsFillEyeSlashFill />
                     ) : (
                       <BsFillEyeFill />
                     )}
                   </div>
                 </div>
-                {errors.errMessage === 'confirmpass' ? (
+                {errors.errMessage === 'password_confirmation' ? (
                   <span className='error_message'>
                     {' '}
                     Your password do not match

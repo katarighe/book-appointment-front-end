@@ -4,6 +4,8 @@ import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import BrandLogo from '../../components/BrandLogo';
 import RightSide from '../../components/RightSide';
+import { Spinner } from 'react-bootstrap';
+import axios from 'axios';
 
 function Signin() {
   const [passwordType, setPasswordType] = useState(false);
@@ -24,7 +26,15 @@ function Signin() {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    // setLoading(true);
+    setLoading(true);
+    await axios
+      .post('http://127.0.0.1:3000/v1/users/login', userData)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -98,8 +108,7 @@ function Signin() {
 
             <div className=' col-12 text-center'>
               <button className='main-btn col-12 mt-1' type='submit'>
-                Log In
-                {/* {loading ? <Spinner /> : 'Log In'} */}
+                {loading ? <Spinner /> : 'Log In'}
               </button>
               {<span className='error_message'> {errors.errMessage} </span>}
             </div>
