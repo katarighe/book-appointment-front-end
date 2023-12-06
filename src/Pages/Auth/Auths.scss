@@ -1,0 +1,191 @@
+.SignIn {
+  header {
+    width: 100%;
+  }
+
+  .aside {
+    width: 100%;
+
+    h2 {
+      font-weight: 700;
+      color: var(--black);
+      font-size: 2rem;
+    }
+
+    h4 {
+      font-weight: 600;
+      color: var(--black);
+      font-size: 1.3rem;
+    }
+
+    .goBack {
+      margin-top: 4em;
+
+      a {
+        color: var(--black);
+        font-size: 1.4rem;
+      }
+
+      font-size: 0.8rem;
+    }
+
+    .form {
+      // width: 100%;
+      p {
+        color: var(--lightGrey);
+      }
+
+      h5 {
+        margin: 0;
+      }
+
+      .formInput {
+        padding: 16px;
+        border: solid 1px var(--Grey6);
+
+        &::placeholder {
+          color: var(--Grey6);
+        }
+      }
+
+      .forgot {
+        a {
+          color: var(--mainColor);
+        }
+
+        font-size: 0.8rem;
+      }
+
+      .Login {
+        color: var(--Grey1);
+      }
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    // header {
+    //   width: 47%;
+    // }
+    .aside {
+      width: 47%;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      // .form {
+      //   width: 80%;
+      // }
+    }
+  }
+}
+
+.userSignup {
+  header {
+    width: 100%;
+  }
+
+  .aside {
+    width: 100%;
+
+    h2 {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    .form {
+      width: 100%;
+
+      p {
+        color: var(--lightGrey);
+      }
+
+      h5 {
+        margin: 0;
+      }
+
+      .formInput {
+        padding: 16px;
+        border: solid 1px var(--Grey6);
+
+        &::placeholder {
+          color: var(--Grey6);
+        }
+      }
+
+      .Login {
+        color: var(--Grey1);
+      }
+    }
+
+    .charLong {
+      font-size: 0.6rem;
+      color: var(--Grey6);
+    }
+
+    .password {
+      position: relative;
+
+      .validatePassword {
+        position: absolute;
+        background: url('../../assets/Union.svg'), no-repeat;
+        background-size: cover;
+        top: -40px;
+        left: 102%;
+        width: 275px;
+        height: 148px;
+        padding: 1em 1.5em;
+
+        p {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 500;
+          margin-bottom: 0.7em;
+        }
+
+        small {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    .aside {
+      width: 47%;
+
+      h2 {
+        font-size: 2.1rem;
+      }
+
+      // .form {
+      //   width: 85%;
+      // }
+    }
+  }
+}
+
+.right {
+  min-height: 100vh;
+  background: url('../../assets/doc.jpg') top center no-repeat;
+  background-size: cover;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  padding: 1em 0;
+
+  // h2 {
+  //   font-size: 3.8rem;
+  //   text-align: center;
+  //   font-weight: 500;
+  //   width: 80%;
+  //   margin-top: 7em;
+  //   color: var(--white);
+  // }
+
+  @media screen and (min-width: 800px) {
+    width: 57%;
+  }
+}
