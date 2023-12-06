@@ -1,6 +1,6 @@
 import StorageManager from '../format/StorageManager';
 
-export const endpoint = 'http://localhost:3001/v1/';
+export const endpoint = 'http://localhost:3000/v1/';
 
 export const formatDate = (date) => date;
 
