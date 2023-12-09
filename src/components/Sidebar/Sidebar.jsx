@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { selectUserData } from '../../Redux/Features/userAuthSlice';
 
-function Sidebar() {
+function Sidebar({ close }) {
   const toggle = useSelector(selectGlobal);
   const { handleShow } = useGlobalHooks();
   const { authUser } = useSelector(selectUserData);
@@ -39,7 +39,7 @@ function Sidebar() {
                   isActive ? 'sidebarActive' : 'sidebarNotActive'
                 }
               >
-                <li>
+                <li onClick={close}>
                   <hgroup className='d-flex flex-row align-items-center col-8 mx-auto tabTitle'>
                     <h4>{tab.title}</h4>
                   </hgroup>

@@ -60,9 +60,26 @@ body::-webkit-scrollbar {
   border: solid 1px var(--Grey5) !important;
 }
 
+.layout {
+  overflow-x: hidden;
+}
+
 .side {
   border-right: solid 1px var(--Grey5);
   height: 100vh;
+}
+
+.hideSideBar {
+  position: absolute;
+  left: -500px;
+  transition: all 0.5s ease-in-out;
+}
+
+.showSideBar {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 ul,
