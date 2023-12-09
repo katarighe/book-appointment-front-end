@@ -1,3 +1,4 @@
+import AddDoctor from '../../Pages/AddDoctor/AddDoctor';
 import BookAppointments from '../../Pages/BookAppointment/BookAppointments';
 import Home from '../../Pages/Home/Home';
 import ManageDoctors from '../../Pages/ManageDocors/ManageDoctors';
@@ -20,6 +21,11 @@ const dashboardRoutes = (userRole) => {
       path: '/managedoctors',
       name: 'Manage Doctors',
       element: <ManageDoctors />,
+    },
+    {
+      path: '/adddoctors',
+      name: 'Add Doctor',
+      element: <AddDoctor />,
     },
   ];
 

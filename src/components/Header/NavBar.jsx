@@ -8,13 +8,11 @@ import { useSelector } from 'react-redux';
 function NavBar() {
   const { authUser } = useSelector(selectUserData);
 
-  console.log(authUser);
-
   const userLogo = authUser.image_url;
 
   return (
     <main className='NavBar col-12'>
-      <header className='container d-flex justify-content-end col-12  col-md-8 align-items-center gap-3'>
+      <header className='container d-flex justify-content-end align-items-center gap-3'>
         <figure className='userInitials '>
           {userLogo ? (
             <img src={userLogo} alt='' />

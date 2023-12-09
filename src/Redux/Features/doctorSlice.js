@@ -12,6 +12,7 @@ export const addDoctors = createAsyncThunk(
   async (mealData, thunkAPI) => {
     try {
       const response = await API.addDoctors(mealData);
+      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);
