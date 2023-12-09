@@ -1,9 +1,9 @@
-// import Sidebar from '../components/Sidebar/Sidebar';
-// import NavBar from '../components/Header/NavBar';
 import { useSelector } from 'react-redux';
 import { selectUserData } from '../Redux/Features/userAuthSlice';
 import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Sidebar from '../components/Sidebar/Sidebar';
+import NavBar from '../components/Header/NavBar';
 
 const DashboardLayout = ({ children }) => {
   const { isLoggedIn } = useSelector(selectUserData);
@@ -14,11 +14,11 @@ const DashboardLayout = ({ children }) => {
 
   return (
     <main className='d-flex justify-content-between'>
-      {/* <aside className='col-1 col-lg-2 side'>
+      <aside className='col-1 col-lg-2 side'>
         <Sidebar />
-      </aside> */}
+      </aside>
       <article className='col-12'>
-        {/* <NavBar /> */}
+        <NavBar />
         {children}
       </article>
     </main>

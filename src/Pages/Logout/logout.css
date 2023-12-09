@@ -1,0 +1,31 @@
+.logout {
+  padding: 2em 1.8em;
+  background: #fff;
+  border-radius: 0.5rem;
+}
+.logout h1 {
+  color: var(--black);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1em auto;
+}
+.logout p {
+  color: var(--black);
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 1em auto;
+}
+
+.container-logout .buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1em auto;
+}
+
+.container-logout .log {
+  background: var(--negative);
+}
+
+.container-logout .popUp_container .wrapper {
+  width: 30% !important;
+}

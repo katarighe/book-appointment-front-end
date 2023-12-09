@@ -1,0 +1,29 @@
+.popUp_container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.053);
+  backdrop-filter: blur(5px) brightness(0.9);
+  -webkit-backdrop-filter: blur(15px) brightness(0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  top: 0;
+  left: 0;
+
+  z-index: 50;
+
+  .X {
+    padding: 1em;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .wrapper {
+    background: var(--white);
+    border-radius: 14px;
+    width: 60%;
+    height: auto;
+  }
+}

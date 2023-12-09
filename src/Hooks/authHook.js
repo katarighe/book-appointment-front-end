@@ -1,48 +1,49 @@
-import useSWR from 'swr';
-import * as API from '../pages/api/apis';
+import { useCookies } from './cookiesHook';
 
 export const useAuthHook = () => {
-  // Get current user
-  const { data: userData, error: userError } = useSWR(
-    'getCurrentUser',
-    API.getCurrentBuyer,
-    {
-      revalidateOnFocus: false,
-    },
-  );
+  const { removeTokenCookie, getTokenCookie } = useCookies();
 
-  const { data: merchantData, error: merchantError } = useSWR(
-    'getCurrentMerchant',
-    API.getCurrentMerchant,
-    {
-      revalidateOnFocus: false,
-    },
-  );
+  // 24 hours in milliseconds
+  const SESSION_TIMEOUT = 24 * 60 * 60 * 1000;
+  let logoutTimer;
 
-  // Get categories
-  const { data: categoryData, error: categoryError } = useSWR(
-    'getCategories',
-    API.getCategories,
-    {
-      revalidateOnFocus: false,
-    },
-  );
+  const setSession = () => {
+    const loggedInTime = Date.now();
+    sessionStorage.setItem('loggedInTime', loggedInTime);
 
-  // Save userToken to localStorage on signedin
-  // const saveUserToken = (user, token) => {
-  //   if (user === 'Buyer') {
-  //     localStorage.setItem('userToken', token);
-  //   } else {
-  //     localStorage.setItem('merchantToken', token);
-  //   }
-  // };
+    // Set a timer to automatically log out the user after SESSION_TIMEOUT
+    logoutTimer = setTimeout(() => {
+      logoutUser();
+    }, SESSION_TIMEOUT);
+  };
+
+  const clearSession = () => {
+    sessionStorage.removeItem('loggedInTime');
+    clearTimeout(logoutTimer);
+  };
+
+  const getSessionTime = () => {
+    return sessionStorage.getItem('loggedInTime');
+  };
+
+  const logoutUser = () => {
+    // Perform logout logic
+    clearSession();
+    localStorage.removeItem('persist:BookDoctor');
+
+    const userToken = getTokenCookie('userToken');
+    if (userToken) {
+      removeTokenCookie('userToken');
+    }
+
+    window.location.reload();
+  };
 
   return {
-    userData,
-    userError,
-    categoryData,
-    categoryError,
-    merchantData,
-    merchantError,
+    logoutUser,
+    setSession,
+    clearSession,
+    getSessionTime,
+    SESSION_TIMEOUT,
   };
 };

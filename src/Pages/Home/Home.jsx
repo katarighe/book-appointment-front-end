@@ -1,5 +1,7 @@
+import './Home.scss';
+
 function Home() {
-  return <div>Home</div>;
+  return <main className='home'>Home</main>;
 }
 
 export default Home;
