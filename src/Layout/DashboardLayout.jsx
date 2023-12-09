@@ -26,7 +26,7 @@ const DashboardLayout = ({ children }) => {
         className={
           active
             ? 'd-flex flex-column side col-6 col-lg-2 position-relative'
-            : 'col-1 col-lg-2 position-relative'
+            : ' d-flex flex-column side  col-1  col-lg-2 position-relative'
         }
       >
         <div className='d-flex d-lg-none '>

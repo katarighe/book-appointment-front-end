@@ -20,7 +20,10 @@ function Sidebar({ close }) {
 
   const pages =
     userRole === 'user'
-      ? SidebarData.filter((route) => route.title !== 'Manage Doctors')
+      ? SidebarData.filter(
+          (route) =>
+            route.title !== 'Manage Doctors' && route.title !== 'Add Doctors',
+        )
       : SidebarData;
 
   return (

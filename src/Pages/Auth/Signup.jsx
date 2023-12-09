@@ -17,6 +17,7 @@ const initialState = {
   email: '',
   password: '',
   password_confirmation: '',
+  image_url: '',
 };
 
 function Signup() {
@@ -42,16 +43,7 @@ function Signup() {
   };
 
   // Validate input
-  const validateInput = ({ name, email, password, password_confirmation }) => {
-    if (
-      name === '' ||
-      email === '' ||
-      password === '' ||
-      password_confirmation === ''
-    ) {
-      setErrors({ error: true, errMessage: 'empty' });
-      return false;
-    }
+  const validateInput = ({ password, password_confirmation }) => {
     if (password) {
       if (password.length < 6) {
         setErrors({ error: true, errMessage: 'weakPassword' });
@@ -157,12 +149,7 @@ function Signup() {
                   onChange={handleChange}
                   defaultValue={userData.email}
                   required
-                  className={` formInput ${
-                    errors.errMessage === 'email' ||
-                    errors.errMessage === 'empty'
-                      ? 'errors'
-                      : ''
-                  } form-control `}
+                  className=' formInput form-control'
                 />
               </div>
             </section>
@@ -172,9 +159,7 @@ function Signup() {
                   {' '}
                   Password{' '}
                 </label>
-                <div
-                  className={` inputContainer d-flex flex-row align-items-center`}
-                >
+                <div className='inputContainer d-flex flex-row align-items-center'>
                   <input
                     ref={inputRef}
                     id='password'
@@ -231,8 +216,7 @@ function Signup() {
                     placeholder='Re-enter password'
                     required
                     className={`formInput  ${
-                      errors.errMessage === 'password_confirmation' ||
-                      errors.errMessage === 'empty'
+                      errors.errMessage === 'password_confirmation'
                         ? 'errors'
                         : ''
                     } form-control `}
@@ -259,12 +243,32 @@ function Signup() {
               </div>
             </section>
 
-            <div className=' col-12 text-center'>
+            <section className='mt-2'>
+              <label htmlFor='email' className='labelTitle'>
+                {' '}
+                Profile Image Url
+              </label>
+              <div>
+                <input
+                  ref={inputRef}
+                  type='url'
+                  id='image_url'
+                  name='image_url'
+                  placeholder='Please enter your profile image url here'
+                  onChange={handleChange}
+                  defaultValue={userData.image_url}
+                  required
+                  className=' formInput form-control'
+                />
+              </div>
+            </section>
+
+            <section className=' col-12 text-center'>
               <button className='main-btn col-12 mt-2' type='submit'>
                 {loading ? <Spinner /> : 'Sign Up'}
               </button>
               {<span className='error_message'> {errors.errMessage} </span>}
-            </div>
+            </section>
 
             <p className='mt-2 '>
               Already have an account?

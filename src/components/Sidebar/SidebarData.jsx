@@ -9,19 +9,26 @@ export const SidebarData = [
   {
     id: 'tab2',
 
+    title: 'Add Doctors',
+    url: '/adddoctors',
+  },
+
+  {
+    id: 'tab3',
+
     title: 'Book Appointments',
     url: '/bookappointments',
-    s: {
-      id: 'tab3',
-
-      title: 'My Appointments',
-      url: '/myappointments',
-      hidden: true,
-    },
   },
 
   {
     id: 'tab4',
+
+    title: 'My Appointments',
+    url: '/myappointments',
+  },
+
+  {
+    id: 'tab5',
     title: 'Manage Doctors',
     url: '/managedoctors',
   },

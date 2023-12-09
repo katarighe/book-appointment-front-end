@@ -24,7 +24,10 @@ const dashboardRoutes = (userRole) => {
   ];
 
   if (userRole === 'user') {
-    return allRoutes.filter((route) => route.name !== 'Manage Doctors');
+    return allRoutes.filter(
+      (route) =>
+        route.name !== 'Manage Doctors' && route.name !== 'Manage Doctors',
+    );
   }
 
   return allRoutes;
