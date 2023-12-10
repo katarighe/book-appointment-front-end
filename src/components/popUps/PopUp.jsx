@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { useSelector } from 'react-redux';

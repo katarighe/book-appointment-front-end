@@ -1,4 +1,3 @@
-import React from 'react';
 import './Navbar.scss';
 
 import { selectUserData } from '../../Redux/Features/userAuthSlice';

@@ -9,7 +9,7 @@ const initialState = {
 
 export const addDoctors = createAsyncThunk(
   'doctors/addMeal',
-  async (mealData, thunkAPI) => {
+  async (mealData) => {
     try {
       const response = await API.addDoctors(mealData);
       return response.data;

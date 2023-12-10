@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import './logout.css';
 import { Link } from 'react-router-dom';
 import PopUp from '../../components/popUps/PopUp';
@@ -26,5 +26,10 @@ function Logout({ id, close }) {
     </div>
   );
 }
+
+Logout.propTypes = {
+  id: PropTypes.string,
+  close: PropTypes.func,
+};
 
 export default Logout;
