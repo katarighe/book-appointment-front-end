@@ -31,6 +31,7 @@ function Home() {
         {allDoctors.map((item) => (
           <DoctorCard
             key={item?.id}
+            id={item?.id}
             imageUrl={item?.imageUrl}
             name={item?.name}
             description={item?.description}

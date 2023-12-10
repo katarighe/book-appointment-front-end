@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import './DoctorCard.scss';
 import { BsFacebook, BsInstagram, BsTwitterX } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-function DoctorCard({ imageUrl, name, description }) {
+function DoctorCard({ id, imageUrl, name, description }) {
   return (
-    <main className='doctorCard d-flex flex-column justify-content-center align-items-center text-center'>
+    <Link
+      to={`doctordetails/${id}`}
+      className='doctorCard d-flex flex-column justify-content-center align-items-center text-center'
+    >
       <figure className=''>
         <img src={imageUrl} alt='' />
       </figure>
@@ -19,11 +23,12 @@ function DoctorCard({ imageUrl, name, description }) {
         <BsTwitterX size={30} color='var(--Grey3)' />
         <BsInstagram size={30} color='var(--Grey3)' />
       </div>
-    </main>
+    </Link>
   );
 }
 
 DoctorCard.propTypes = {
+  id: PropTypes.string,
   imageUrl: PropTypes.string,
   name: PropTypes.string,
   description: PropTypes.string,

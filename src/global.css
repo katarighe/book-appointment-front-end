@@ -163,6 +163,7 @@ p {
   font-size: 1rem;
   font-weight: 600;
   color: var(--mainColor);
+  transition: all 0.5s ease-in-out;
 }
 
 .outline-dark {
@@ -177,6 +178,13 @@ p {
 .main-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.main-btn:hover {
+  background: transparent;
+  color: var(--mainColor);
+  border: solid 1px var(--mainColor);
+  transition: all 0.5s ease-in-out;
 }
 
 button:disabled {
