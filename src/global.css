@@ -123,6 +123,7 @@ small {
   color: var(--black);
 }
 
+h1,
 h2 {
   font-size: 2rem;
   line-height: 1.1;
@@ -329,6 +330,7 @@ hr {
     z-index: 1;
   }
 
+  h1,
   h2 {
     font-size: 3.2rem;
     line-height: 1.1;
