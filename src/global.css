@@ -28,7 +28,6 @@
 
 a {
   text-decoration: none;
-  color: var(--black);
 }
 
 a:hover {
@@ -41,6 +40,7 @@ body {
   min-width: 320px;
   max-width: 1800px;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--black);
 }
 
 body::-webkit-scrollbar {
@@ -60,8 +60,26 @@ body::-webkit-scrollbar {
   border: solid 1px var(--Grey5) !important;
 }
 
+.layout {
+  overflow-x: hidden;
+}
+
 .side {
   border-right: solid 1px var(--Grey5);
+  height: 100vh;
+}
+
+.hideSideBar {
+  position: absolute;
+  left: -500px;
+  transition: all 0.5s ease-in-out;
+}
+
+.showSideBar {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 ul,
@@ -96,19 +114,24 @@ small {
 }
 
 h2 {
-  font-size: 3.2rem;
+  font-size: 2rem;
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
+}
+
+p {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 /* ==== General Styles Start ==== */
@@ -148,6 +171,48 @@ h4 {
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* ===Dashboard title start=== */
+
+.sidebarActive {
+  background: var(--mainColor);
+  color: var(--Grey1);
+  padding: 1em 0;
+}
+
+.sidebarActive h4 {
+  color: var(--white);
+}
+
+.sidebarActive svg [stroke] {
+  stroke: var(--white);
+}
+
+.sidebarNotActive {
+  color: var(--Grey2);
+  padding: 1em 0;
+}
+
+.sidebarNotActive h4 {
+  color: var(--Grey2);
+}
+
+.sidebarNotActive svg [stroke] {
+  color: var(--Grey2);
+}
+
+/* ===Dashboard title end=== */
+
+.userInitials {
+  font-size: 1.5em;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .errors {
@@ -228,5 +293,28 @@ hr {
     font-size: 24px;
     margin: 0;
     color: var(--Grey3);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  h2 {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
   }
 }

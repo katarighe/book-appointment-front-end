@@ -55,7 +55,7 @@ function Signin() {
 
         setErrors({
           error: true,
-          errMessage: err.response.data.error_message.email,
+          errMessage: err.response.data.error_message,
         });
       });
   };
