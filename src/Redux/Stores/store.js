@@ -16,11 +16,13 @@ import storage from 'redux-persist/lib/storage';
 import userAuthSlice from '../Features/userAuthSlice';
 import globalSlice from '../Features/globalSlice';
 import doctorSlice from '../Features/doctorSlice';
+import appointmentSlice from '../Features/appointmentSlice';
 
 const allReducers = combineReducers({
   userAuthSlice,
   globalSlice,
   doctorSlice,
+  appointmentSlice,
 });
 
 const mainStores = configureStore({

@@ -1,5 +1,6 @@
 import AddDoctor from '../../Pages/AddDoctor/AddDoctor';
 import BookAppointments from '../../Pages/BookAppointment/BookAppointments';
+import BookDoctor from '../../Pages/BookDoctor/BookDoctor';
 import DoctorDetails from '../../Pages/DoctorDetails/DoctorDetails';
 import Home from '../../Pages/Home/Home';
 import ManageDoctors from '../../Pages/ManageDocors/ManageDoctors';
@@ -18,6 +19,12 @@ const dashboardRoutes = (userRole) => {
       path: '/doctordetails/:id',
       name: ' Doctor Details',
       element: <DoctorDetails />,
+    },
+
+    {
+      path: '/doctordetails/bookdoctor',
+      name: ' Book Doctor ',
+      element: <BookDoctor />,
     },
     {
       path: '/myappointments',
