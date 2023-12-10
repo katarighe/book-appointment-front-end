@@ -12,7 +12,6 @@ export const addDoctors = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const response = await API.addDoctors(userData);
-      console.log(response.data);
       return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -25,7 +24,6 @@ export const getDoctors = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await API.getDoctors();
-      console.log(response.data);
       return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);

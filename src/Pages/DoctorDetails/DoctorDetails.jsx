@@ -1,16 +1,15 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { selectDoctor } from '../../Redux/Features/doctorSlice';
 import './DoctorDetails.scss';
+import { BsCaretLeft } from 'react-icons/bs';
 
 function DoctorDetails() {
   const { id } = useParams();
   const { allDoctors } = useSelector(selectDoctor);
-
+  const navigate = useNavigate();
   const { name, imageUrl, description, specialization, costPerDay, city } =
     allDoctors.find((doc) => doc.id === id);
-
-  console.log(id);
 
   return (
     <main className='doctorDetails'>
@@ -46,12 +45,22 @@ function DoctorDetails() {
           </section>
 
           <section className='mt-5'>
-            <button className='main-btn' type='button'>
+            <Link to className='main-btn'>
               {' '}
               Book Appointment{' '}
-            </button>
+            </Link>
           </section>
         </article>
+      </section>
+      <section className='d-flex'>
+        <div
+          className='back '
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <BsCaretLeft />
+        </div>
       </section>
     </main>
   );

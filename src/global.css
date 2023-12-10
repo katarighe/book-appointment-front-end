@@ -66,7 +66,7 @@ body::-webkit-scrollbar {
 
 .side {
   border-right: solid 1px var(--Grey5);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .navIcons {
@@ -80,6 +80,7 @@ body::-webkit-scrollbar {
   width: 30%;
   background: var(--white);
   transition: all 0.5s ease-in-out;
+  height: 100vh;
 }
 
 .showSideBar {
@@ -90,6 +91,7 @@ body::-webkit-scrollbar {
   background: var(--white);
   border-right: solid 1px var(--Grey5);
   z-index: 1;
+  height: 100vh;
 }
 
 ul,
