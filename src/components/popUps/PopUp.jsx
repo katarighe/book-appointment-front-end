@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { useSelector } from 'react-redux';
@@ -37,4 +38,8 @@ function PopUp({ id, children }) {
   );
 }
 
+PopUp.propTypes = {
+  id: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 export default PopUp;

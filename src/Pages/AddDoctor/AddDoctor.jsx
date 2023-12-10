@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './AddDoctor.scss';
 
 import * as API from '../../api/apis';

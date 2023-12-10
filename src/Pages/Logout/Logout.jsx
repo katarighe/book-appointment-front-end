@@ -1,8 +1,8 @@
-import React from 'react';
 import './logout.css';
 import { Link } from 'react-router-dom';
 import PopUp from '../../components/popUps/PopUp';
 import { useAuthHook } from '../../Hooks/authHook';
+import PropTypes from 'prop-types';
 
 function Logout({ id, close }) {
   const { logoutUser } = useAuthHook();
@@ -26,5 +26,10 @@ function Logout({ id, close }) {
     </div>
   );
 }
+
+Logout.propTypes = {
+  id: PropTypes.string,
+  close: PropTypes.func,
+};
 
 export default Logout;

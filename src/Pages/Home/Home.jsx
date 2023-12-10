@@ -7,7 +7,7 @@ import DoctorCard from '../../components/DoctorCard/DoctorCard';
 
 function Home() {
   const dispatch = useDispatch();
-  const { allDoctors, isLoading, isError } = useSelector(selectDoctor);
+  const { allDoctors, isLoading } = useSelector(selectDoctor);
   console.log(allDoctors);
 
   useEffect(() => {
