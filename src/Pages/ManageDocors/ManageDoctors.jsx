@@ -17,7 +17,7 @@ function ManageDoctors() {
  const deleteDoc = (id) => {
   if (id) {
     console.log(id);
-    dispatch(deleteDoctors);
+    dispatch(deleteDoctors(id));
   }
  }
 
