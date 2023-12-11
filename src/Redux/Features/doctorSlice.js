@@ -21,6 +21,22 @@ export const addDoctors = createAsyncThunk(
   },
 );
 
+export const deleteDoctors = createAsyncThunk(
+
+  'doctors/deleteDoctors',
+  async (id, thunkAPI) => {
+
+    try {
+      const response = await API.deleteDoctors(id);
+      console.log(response);
+      //return response.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
+
 export const getDoctors = createAsyncThunk(
   'doctors/getDoctors',
   async (_, thunkAPI) => {

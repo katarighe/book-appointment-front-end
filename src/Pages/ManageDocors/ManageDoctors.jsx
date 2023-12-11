@@ -3,7 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getDoctors, deleteDoctors } from '../../api/apis'; 
-import DeleteDoctor from '../ManageDocors/DeleteDoctor.css';
+import  './DeleteDoctor.css';
 
 let fetched = false;
 
