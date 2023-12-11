@@ -8,21 +8,34 @@ const initialState = {
 };
 
 export const addDoctors = createAsyncThunk(
-  'doctors/addMeal',
-  async (mealData) => {
+
+  'doctors/addDoctors',
+  async (userData, thunkAPI) => {
+
     try {
-      const response = await API.addDoctors(mealData);
-      return response.data;
+      const response = await API.addDoctors(userData);
+      return response.data.data;
     } catch (error) {
-      console.log(error);
-      // return thunkAPI.rejectWithValue(error.response.data);
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
+export const getDoctors = createAsyncThunk(
+  'doctors/getDoctors',
+  async (_, thunkAPI) => {
+    try {
+      const response = await API.getDoctors();
+      return response.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   },
 );
 
 export const doctorSlice = createSlice({
   name: 'doctors',
-  initialState: initialState,
+  initialState,
 
   reducers: {},
   extraReducers: (builder) => {
@@ -33,17 +46,27 @@ export const doctorSlice = createSlice({
       .addCase(addDoctors.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = '';
-        state.allDoctors = action.payload;
+        state.allDoctors.push(action.payload);
       })
       .addCase(addDoctors.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = action.payload;
+      })
+      .addCase(getDoctors.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getDoctors.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = '';
+        state.allDoctors = action.payload;
+      })
+      .addCase(getDoctors.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.payload
+          ? action.payload.error
+          : 'An error occurred';
       });
   },
 });
-
-export const { userAuthData, userLogOut } = doctorSlice.actions;
-
-export const selectUserData = (state) => state.doctorSlice;
-
+export const selectDoctor = (state) => state.doctorSlice;
 export default doctorSlice.reducer;

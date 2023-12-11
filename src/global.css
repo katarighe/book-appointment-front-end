@@ -66,20 +66,32 @@ body::-webkit-scrollbar {
 
 .side {
   border-right: solid 1px var(--Grey5);
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.navIcons {
+  position: fixed;
+  z-index: 5;
 }
 
 .hideSideBar {
-  position: absolute;
-  left: -500px;
+  position: fixed;
+  left: -1500px;
+  width: 30%;
+  background: var(--white);
   transition: all 0.5s ease-in-out;
+  height: 100vh;
 }
 
 .showSideBar {
-  position: absolute;
-  top: 50px;
+  width: 100%;
+  position: fixed;
   left: 0;
   transition: all 0.5s ease-in-out;
+  background: var(--white);
+  border-right: solid 1px var(--Grey5);
+  z-index: 1;
+  height: 100vh;
 }
 
 ul,
@@ -113,6 +125,7 @@ small {
   color: var(--black);
 }
 
+h1,
 h2 {
   font-size: 2rem;
   line-height: 1.1;
@@ -152,6 +165,7 @@ p {
   font-size: 1rem;
   font-weight: 600;
   color: var(--mainColor);
+  transition: all 0.5s ease-in-out;
 }
 
 .outline-dark {
@@ -166,6 +180,13 @@ p {
 .main-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.main-btn:hover {
+  background: transparent;
+  color: var(--mainColor);
+  border: solid 1px var(--mainColor);
+  transition: all 0.5s ease-in-out;
 }
 
 button:disabled {
@@ -296,7 +317,30 @@ hr {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .showSideBar {
+    width: 30%;
+    position: fixed;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+    background: var(--white);
+    border-right: solid 1px var(--Grey5);
+    z-index: 1;
+  }
+}
+
 @media screen and (min-width: 900px) {
+  .showSideBar {
+    width: 30%;
+    position: fixed;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+    background: var(--white);
+    border-right: solid 1px var(--Grey5);
+    z-index: 1;
+  }
+
+  h1,
   h2 {
     font-size: 3.2rem;
     line-height: 1.1;

@@ -16,20 +16,13 @@ const DashboardLayout = ({ children }) => {
   }
 
   const handleShowSideBar = () => {
-    console.log(active);
     setActive(!active);
   };
 
   return (
     <main className='layout d-flex justify-content-between '>
-      <aside
-        className={
-          active
-            ? 'd-flex flex-column side col-6 col-lg-2 position-relative'
-            : ' d-flex flex-column side  col-1  col-lg-2 position-relative'
-        }
-      >
-        <div className='d-flex d-lg-none '>
+      <aside className=' d-flex flex-column side  col-0  col-lg-2 position-relative'>
+        <div className='d-flex d-lg-none navIcons'>
           {active ? (
             <BsX size={40} onClick={handleShowSideBar} />
           ) : (
@@ -49,7 +42,7 @@ const DashboardLayout = ({ children }) => {
           <Sidebar />
         </div>
       </aside>
-      <article className='col-12'>
+      <article className='col-12 col-lg-10'>
         <NavBar />
         {children}
       </article>

@@ -1,0 +1,18 @@
+.doctorCard {
+  h3 {
+    font-weight: 700;
+    margin-bottom: 0.3em;
+  }
+
+  figure {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: top center;
+    }
+  }
+}

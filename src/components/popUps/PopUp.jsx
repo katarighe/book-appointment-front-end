@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { useSelector } from 'react-redux';
 import './PopUp.scss';
