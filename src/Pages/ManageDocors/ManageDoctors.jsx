@@ -3,6 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { getDoctors } from '../../Redux/Features/doctorSlice';
+import DeleteDoctor from '../ManageDocors/DeleteDoctor.css'
 
 function ManageDoctors() {
   const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
