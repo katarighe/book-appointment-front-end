@@ -2,35 +2,30 @@ import React, { useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { getDoctors, deleteDoctors } from '../../api/apis'; 
 import  './DeleteDoctor.css';
-
-let fetched = false;
+import { deleteDoctors, selectDoctor } from '../../Redux/Features/doctorSlice';
+import { Spinner } from 'react-bootstrap';
 
 function ManageDoctors() {
-  const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
-  const user = useSelector((state) => state.userReducer.userDetails);
+  const { allDoctors, isLoading } = useSelector(selectDoctor);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!fetched) {
-      dispatch(getDoctors());
-      fetched = true;
-    }
 
-    if (user.role !== 'admin') {
-      navigate('/');
-    }
-  }, []);
-  const deleteDoc = (id) => {
-    dispatch(deleteDoctors(id));
-  };
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+ const deleteDoc = (id) => {
+  if (id) {
+    console.log(id);
+    dispatch(deleteDoctors);
+  }
+ }
 
   return (
     <>
       <section className="listContainer">
         <div className="listDoctor">
-          {doctors ? doctors.map((doctor) => (
+          {allDoctors ? allDoctors.map((doctor) => (
             <div key={doctor.id} className="list">
               <img src={doctor.imageUrl} alt="docs" className="docImage" />
               <div className="delete">

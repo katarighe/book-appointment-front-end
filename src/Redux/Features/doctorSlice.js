@@ -25,7 +25,7 @@ export const deleteDoctors = createAsyncThunk(
 
   'doctors/deleteDoctors',
   async (id, thunkAPI) => {
-
+console.log(id);
     try {
       const response = await API.deleteDoctors(id);
       console.log(response);
@@ -77,6 +77,19 @@ export const doctorSlice = createSlice({
         state.allDoctors = action.payload;
       })
       .addCase(getDoctors.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.payload
+          ? action.payload.error
+          : 'An error occurred';
+      })
+      .addCase(deleteDoctors.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteDoctors.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = '';
+      })
+      .addCase(deleteDoctors.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = action.payload
           ? action.payload.error
