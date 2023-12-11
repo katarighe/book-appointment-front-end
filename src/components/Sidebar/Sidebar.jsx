@@ -9,7 +9,6 @@ import { useGlobalHooks } from '../../Hooks/globalHooks';
 import { useSelector } from 'react-redux';
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { selectUserData } from '../../Redux/Features/userAuthSlice';
-import PropTypes from 'prop-types';
 
 function Sidebar({ close }) {
   const toggle = useSelector(selectGlobal);
