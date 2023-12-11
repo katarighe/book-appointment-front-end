@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Sidebar.scss';
 import { SidebarData } from './SidebarData';
 import { NavLink } from 'react-router-dom';
@@ -66,7 +67,9 @@ function Sidebar({ close }) {
     </main>
   );
 }
+
 Sidebar.propTypes = {
   close: PropTypes.func,
 };
+
 export default Sidebar;

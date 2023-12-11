@@ -1,3 +1,6 @@
+
+import PropTypes from 'prop-types';
+
 import './logout.css';
 import { Link } from 'react-router-dom';
 import PopUp from '../../components/popUps/PopUp';

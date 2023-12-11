@@ -42,4 +42,5 @@ PopUp.propTypes = {
   id: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
 export default PopUp;
