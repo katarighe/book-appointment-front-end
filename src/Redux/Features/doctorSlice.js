@@ -8,13 +8,24 @@ const initialState = {
 };
 
 export const addDoctors = createAsyncThunk(
-
   'doctors/addDoctors',
   async (userData, thunkAPI) => {
-
     try {
       const response = await API.addDoctors(userData);
       return response.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  },
+);
+
+export const deleteDoctors = createAsyncThunk(
+  'doctors/deleteDoctors',
+  async (id, thunkAPI) => {
+    try {
+      const response = await API.deleteDoctors(id);
+
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
@@ -37,7 +48,12 @@ export const doctorSlice = createSlice({
   name: 'doctors',
   initialState,
 
-  reducers: {},
+  reducers: {
+    removeDoctor: (state, action) => {
+      const docId = action.payload;
+      state.allDoctors = state.allDoctors.filter((doc) => doc.id !== docId);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(addDoctors.pending, (state) => {
@@ -65,8 +81,23 @@ export const doctorSlice = createSlice({
         state.isError = action.payload
           ? action.payload.error
           : 'An error occurred';
+      })
+      .addCase(deleteDoctors.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteDoctors.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isError = '';
+      })
+      .addCase(deleteDoctors.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.payload
+          ? action.payload.error
+          : 'An error occurred';
       });
   },
 });
+
+export const { removeDoctor } = doctorSlice.actions;
 export const selectDoctor = (state) => state.doctorSlice;
 export default doctorSlice.reducer;
