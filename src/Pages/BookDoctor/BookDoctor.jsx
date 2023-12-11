@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useGlobalHooks } from '../../Hooks/globalHooks';
+import { useSweetAlert } from '../../Hooks/useSweetAlert';
 import './BookDoctor.scss';
 import { useNavigate } from 'react-router-dom';
 import { BsCaretLeft } from 'react-icons/bs';
@@ -9,32 +9,21 @@ import {
   createAppointment,
   selectAppointment,
 } from '../../Redux/Features/appointmentSlice';
-
-// const initialState = {
-//   user_name: '',
-//   doctor_name: '',
-//   date_of_appointment: '',
-//   user_id: '',
-//   doctor_id: '',
-// };
+import { Spinner } from 'react-bootstrap';
 
 function BookDoctor() {
-  const [message, setMessage] = useState('');
-  const { errors, setErrors, loading, setLoading } = useGlobalHooks();
+  const { showAlert } = useSweetAlert();
   const dispatch = useDispatch();
-  const { appointmentDetails } = useSelector(selectAppointment);
+  const { appointmentDetails, isLoading } = useSelector(selectAppointment);
   const { authUser } = useSelector(selectUserData);
 
   const [bookingData, setBookingData] = useState({
-    username: authUser.name,
-    doctorname: appointmentDetails.name,
     date_of_appointment: '',
     user_id: authUser.image?.record.id,
     doctor_id: appointmentDetails.doctor_id,
+    username: authUser.name,
+    doctorname: appointmentDetails.name,
   });
-
-  // console.log(authUser);
-  // console.log(appointmentDetails);
 
   const navigate = useNavigate();
 
@@ -43,23 +32,16 @@ function BookDoctor() {
     setBookingData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const clearInput = () => {
-    setBookingData({});
-  };
-
-  const date1 = new Date(bookingData.date_of_appointment);
-
-  console.log(date1);
-
   const handleAddDoctor = async (e) => {
     e.preventDefault();
-    // setLoading(true);
-    console.log(bookingData);
 
     try {
       const rsp = await dispatch(createAppointment(bookingData));
 
-      console.log(rsp);
+      if (rsp.meta.requestStatus === 'fulfilled') {
+        showAlert('Appointment booked successfully');
+        navigate('/myappointments');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -83,7 +65,7 @@ function BookDoctor() {
           {' '}
           Book Appointment with Doctor {bookingData.doctorname}
         </h3>
-        <p className='text-center text-success'> {message} </p>
+
         <form onSubmit={handleAddDoctor} className='col-12 col-md-8 mx-auto'>
           <div className='my-3 col-12'>
             <label htmlFor='User Name'> User Name</label>
@@ -151,11 +133,10 @@ function BookDoctor() {
           </div>
           <div className='mt-3'>
             <button className='main-btn col-12' type='submit'>
-              {loading ? <Spinner /> : 'Book Now'}
+              {isLoading ? <Spinner /> : 'Book Now'}
             </button>
           </div>
         </form>
-        {errors.error && <p className='error_message'> {errors.errMessage} </p>}
       </section>
     </main>
   );
