@@ -3,9 +3,12 @@ import { useGlobalHooks } from '../../Hooks/globalHooks';
 import './BookDoctor.scss';
 import { useNavigate } from 'react-router-dom';
 import { BsCaretLeft } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectUserData } from '../../Redux/Features/userAuthSlice';
-import { selectAppointment } from '../../Redux/Features/appointmentSlice';
+import {
+  createAppointment,
+  selectAppointment,
+} from '../../Redux/Features/appointmentSlice';
 
 // const initialState = {
 //   user_name: '',
@@ -18,13 +21,13 @@ import { selectAppointment } from '../../Redux/Features/appointmentSlice';
 function BookDoctor() {
   const [message, setMessage] = useState('');
   const { errors, setErrors, loading, setLoading } = useGlobalHooks();
-
+  const dispatch = useDispatch();
   const { appointmentDetails } = useSelector(selectAppointment);
   const { authUser } = useSelector(selectUserData);
 
   const [bookingData, setBookingData] = useState({
-    user_name: authUser.name,
-    doctor_name: appointmentDetails.name,
+    username: authUser.name,
+    doctorname: appointmentDetails.name,
     date_of_appointment: '',
     user_id: authUser.image?.record.id,
     doctor_id: appointmentDetails.doctor_id,
@@ -44,39 +47,22 @@ function BookDoctor() {
     setBookingData({});
   };
 
+  const date1 = new Date(bookingData.date_of_appointment);
+
+  console.log(date1);
+
   const handleAddDoctor = async (e) => {
     e.preventDefault();
     // setLoading(true);
     console.log(bookingData);
-    clearInput();
 
-    // try {
-    //   dispatch(addDoctors(userData));
+    try {
+      const rsp = await dispatch(createAppointment(bookingData));
 
-    //   if (isError.description) {
-    //     setErrors({
-    //       error: true,
-    //       errMessage: ' Description is too short, minimum is 3 characters',
-    //     });
-
-    //     return;
-    //   }
-
-    //   if (isError.cost_per_day) {
-    //     setErrors({
-    //       error: true,
-    //       errMessage: ' Cost per day must be greater than 0',
-    //     });
-
-    //     return;
-    //   }
-
-    //   clearInput();
-    //   setMessage('Doctor Successully added');
-    //   // navigate('/');
-    // } catch (error) {
-    //   console.log(error);
-    // }
+      console.log(rsp);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -93,16 +79,19 @@ function BookDoctor() {
       </section>
 
       <section className=' d-flex flex-column align-items-center'>
-        <h3 className='my-3'> Book Appointment with Doctor name</h3>
+        <h3 className='my-3'>
+          {' '}
+          Book Appointment with Doctor {bookingData.doctorname}
+        </h3>
         <p className='text-center text-success'> {message} </p>
         <form onSubmit={handleAddDoctor} className='col-12 col-md-8 mx-auto'>
           <div className='my-3 col-12'>
             <label htmlFor='User Name'> User Name</label>
             <input
               type='text'
-              id='user_name'
+              id='username'
               placeholder='Enter user name'
-              value={bookingData.user_name}
+              value={bookingData.username}
               className='form-control'
               onChange={handleChange}
               minLength={3}
@@ -113,7 +102,7 @@ function BookDoctor() {
             <label htmlFor='User ID'> User ID</label>
             <input
               type='text'
-              id='user_name'
+              id='user_id'
               placeholder='Enter user id'
               value={bookingData.user_id}
               className='form-control'
@@ -126,9 +115,9 @@ function BookDoctor() {
             <label htmlFor='Doctor Name'> Doctor Name</label>
             <input
               type='text'
-              id='user_name'
+              id='doctorname'
               placeholder='Enter doctor name'
-              value={bookingData.doctor_name}
+              value={bookingData.doctorname}
               className='form-control'
               onChange={handleChange}
               minLength={3}
@@ -139,7 +128,7 @@ function BookDoctor() {
             <label htmlFor='Doctor ID'> Doctor ID</label>
             <input
               type='text'
-              id='user_name'
+              id='doctor_id'
               placeholder='Enter doctor id'
               value={bookingData.doctor_id}
               className='form-control'
@@ -150,7 +139,7 @@ function BookDoctor() {
           </div>
 
           <div className='my-3 col-12'>
-            <label htmlFor='User Name'> User Name</label>
+            <label htmlFor='Date of appointment'> Date of appointment</label>
             <input
               type='date'
               id='date_of_appointment'

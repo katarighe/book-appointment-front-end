@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import * as API from '../../api/apis';
 
 const initialState = {
-  allAppointment: [],
+  allAppointments: [],
   isLoading: false,
   isError: '',
   appointmentDetails: null,
@@ -49,7 +49,7 @@ export const appointmentSlice = createSlice({
       .addCase(createAppointment.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = '';
-        state.allDoctors.push(action.payload);
+        state.allAppointments.push(action.payload);
       })
       .addCase(createAppointment.rejected, (state, action) => {
         state.isLoading = false;
@@ -61,7 +61,7 @@ export const appointmentSlice = createSlice({
       .addCase(getAppointments.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = '';
-        state.allDoctors = action.payload;
+        state.allAppointments = action.payload;
       })
       .addCase(getAppointments.rejected, (state, action) => {
         state.isLoading = false;

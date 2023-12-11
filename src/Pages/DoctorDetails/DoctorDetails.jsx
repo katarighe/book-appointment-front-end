@@ -12,7 +12,7 @@ function DoctorDetails() {
   const dispatch = useDispatch();
 
   const {
-    id: doctor_id,
+    id: docId,
     name,
     imageUrl,
     description,
@@ -20,6 +20,8 @@ function DoctorDetails() {
     costPerDay,
     city,
   } = allDoctors.find((doc) => doc.id === id);
+
+  const doctor_id = Number(docId);
 
   const doctorDetails = () => {
     dispatch(
