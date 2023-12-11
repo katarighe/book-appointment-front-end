@@ -85,7 +85,7 @@ export const doctorSlice = createSlice({
       .addCase(deleteDoctors.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteDoctors.fulfilled, (state, action) => {
+      .addCase(deleteDoctors.fulfilled, (state) => {
         state.isLoading = false;
         state.isError = '';
       })

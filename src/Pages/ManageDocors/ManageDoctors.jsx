@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+
 import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
 import './DeleteDoctor.css';
 import {
   deleteDoctors,
@@ -9,7 +8,6 @@ import {
   selectDoctor,
 } from '../../Redux/Features/doctorSlice';
 import { Spinner } from 'react-bootstrap';
-import { useSweetAlert } from '../../Hooks/useSweetAlert';
 
 function ManageDoctors() {
   const { allDoctors, isLoading } = useSelector(selectDoctor);
