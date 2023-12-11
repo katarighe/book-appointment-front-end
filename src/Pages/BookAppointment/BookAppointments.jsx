@@ -45,7 +45,10 @@ function BookAppointments() {
     <main className='bookAppointment'>
       <ul className='d-flex flex-wrap gap-2 justify-content-between container mt-5'>
         {allDoctors.map((item) => (
-          <li className='card listItem d-flex flex-column flex-md-row justify-content-between p-2 col-12 col-md-5'>
+          <li
+            key={item?.id}
+            className='card listItem d-flex flex-column flex-md-row justify-content-between p-2 col-12 col-md-5'
+          >
             <figure className='col-12 col-md-4'>
               <img src={item?.imageUrl} alt='' />
             </figure>

@@ -37,7 +37,10 @@ function MyAppointments() {
       ) : (
         <ul className='d-flex flex-wrap gap-1 justify-content-between container'>
           {allAppointments.map((item) => (
-            <li className='card listCard d-flex justify-content-between flex-fill p-2'>
+            <li
+              key={item?.id}
+              className='card listCard d-flex justify-content-between flex-fill p-2'
+            >
               <h3>
                 {' '}
                 <span>
