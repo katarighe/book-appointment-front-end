@@ -20,8 +20,8 @@ export const deleteDoctors = async (id) => {
   return await baseAPI.delete(`/doctors/${id}`);
 };
 
-export const bookAppointment = async () => {
-  return await baseAPI.post('/appointments');
+export const createAppointment = async (formData) => {
+  return await baseAPI.post('/appointments', formData);
 };
 
 export const getUserAppointments = async () => {

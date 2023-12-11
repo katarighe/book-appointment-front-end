@@ -44,6 +44,7 @@ const inputData = [
     placeholder: 'About Doctor',
   },
 ];
+
 const initialState = {
   name: '',
   city: '',

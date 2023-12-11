@@ -1,0 +1,19 @@
+.myAppointment {
+  h3 {
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  h4 {
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  span {
+    color: var(--accentColor);
+  }
+
+  .listCard {
+    background: var(--mainColor);
+  }
+}

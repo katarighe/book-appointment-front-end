@@ -1,15 +1,41 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { selectDoctor } from '../../Redux/Features/doctorSlice';
 import './DoctorDetails.scss';
 import { BsCaretLeft } from 'react-icons/bs';
+import { getAppointmentDetails } from '../../Redux/Features/appointmentSlice';
 
 function DoctorDetails() {
   const { id } = useParams();
   const { allDoctors } = useSelector(selectDoctor);
   const navigate = useNavigate();
-  const { name, imageUrl, description, specialization, costPerDay, city } =
-    allDoctors.find((doc) => doc.id === id);
+  const dispatch = useDispatch();
+
+  const {
+    id: docId,
+    name,
+    imageUrl,
+    description,
+    specialization,
+    costPerDay,
+    city,
+  } = allDoctors.find((doc) => doc.id === id);
+
+  const doctor_id = Number(docId);
+
+  const doctorDetails = () => {
+    dispatch(
+      getAppointmentDetails({
+        doctor_id,
+        name,
+        imageUrl,
+        description,
+        specialization,
+        costPerDay,
+        city,
+      }),
+    );
+  };
 
   return (
     <main className='doctorDetails'>
@@ -45,7 +71,11 @@ function DoctorDetails() {
           </section>
 
           <section className='mt-5'>
-            <Link to className='main-btn'>
+            <Link
+              to='/doctordetails/bookdoctor'
+              className='main-btn'
+              onClick={doctorDetails}
+            >
               {' '}
               Book Appointment{' '}
             </Link>
