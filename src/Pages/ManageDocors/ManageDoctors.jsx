@@ -2,42 +2,54 @@ import React, { useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import  './DeleteDoctor.css';
-import { deleteDoctors, selectDoctor } from '../../Redux/Features/doctorSlice';
+import './DeleteDoctor.css';
+import {
+  deleteDoctors,
+  removeDoctor,
+  selectDoctor,
+} from '../../Redux/Features/doctorSlice';
 import { Spinner } from 'react-bootstrap';
+import { useSweetAlert } from '../../Hooks/useSweetAlert';
 
 function ManageDoctors() {
   const { allDoctors, isLoading } = useSelector(selectDoctor);
+
   const dispatch = useDispatch();
 
   if (isLoading) {
     return <Spinner />;
   }
 
- const deleteDoc = (id) => {
-  if (id) {
-    console.log(id);
-    dispatch(deleteDoctors(id));
-  }
- }
+  const deleteDoc = (id) => {
+    if (id) {
+      dispatch(deleteDoctors(id));
+      dispatch(removeDoctor(id));
+    }
+  };
 
   return (
     <>
-      <section className="listContainer">
-        <div className="listDoctor">
-          {allDoctors ? allDoctors.map((doctor) => (
-            <div key={doctor.id} className="list">
-              <img src={doctor.imageUrl} alt="docs" className="docImage" />
-              <div className="delete">
-                <p className="docName">{doctor.name}</p>
-                <FaIcons.FaTrash
-                  role="button"
-                  className="dltBtn"
-                  onClick={() => { deleteDoc(doctor.id); }}
-                />
+      <section className='listContainer'>
+        <div className='listDoctor'>
+          {allDoctors ? (
+            allDoctors.map((doctor) => (
+              <div key={doctor.id} className='list'>
+                <img src={doctor.imageUrl} alt='docs' className='docImage' />
+                <div className='delete'>
+                  <p className='docName'>{doctor.name}</p>
+                  <FaIcons.FaTrash
+                    role='button'
+                    className='dltBtn'
+                    onClick={() => {
+                      deleteDoc(doctor.id);
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          )) : <p>No Doctors 😔</p>}
+            ))
+          ) : (
+            <p>No Doctors 😔</p>
+          )}
         </div>
       </section>
     </>

@@ -8,10 +8,8 @@ const initialState = {
 };
 
 export const addDoctors = createAsyncThunk(
-
   'doctors/addDoctors',
   async (userData, thunkAPI) => {
-
     try {
       const response = await API.addDoctors(userData);
       return response.data.data;
@@ -22,20 +20,17 @@ export const addDoctors = createAsyncThunk(
 );
 
 export const deleteDoctors = createAsyncThunk(
-
   'doctors/deleteDoctors',
   async (id, thunkAPI) => {
-console.log(id);
     try {
       const response = await API.deleteDoctors(id);
-      console.log(response);
-      //return response.data.data;
+
+      return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   },
 );
-
 
 export const getDoctors = createAsyncThunk(
   'doctors/getDoctors',
@@ -53,7 +48,12 @@ export const doctorSlice = createSlice({
   name: 'doctors',
   initialState,
 
-  reducers: {},
+  reducers: {
+    removeDoctor: (state, action) => {
+      const docId = action.payload;
+      state.allDoctors = state.allDoctors.filter((doc) => doc.id !== docId);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(addDoctors.pending, (state) => {
@@ -97,5 +97,7 @@ export const doctorSlice = createSlice({
       });
   },
 });
+
+export const { removeDoctor } = doctorSlice.actions;
 export const selectDoctor = (state) => state.doctorSlice;
 export default doctorSlice.reducer;
