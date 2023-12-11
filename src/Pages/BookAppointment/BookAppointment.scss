@@ -1,0 +1,46 @@
+.bookAppointment {
+  .listItem {
+    width: 100%;
+    .title {
+      text-align: center;
+      h3 {
+        font-weight: 700;
+        color: var(--mainColor);
+      }
+
+      h4 {
+        font-weight: 500;
+      }
+    }
+    figure {
+      margin-bottom: 0.7em;
+
+      img {
+        border-radius: 9px;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .title {
+        text-align: start;
+      }
+    }
+
+    @media screen and (min-width: 900px) {
+      width: 48%;
+      figure {
+        margin-bottom: 0;
+      }
+
+      .title {
+        text-align: start;
+      }
+    }
+
+    @media screen and (min-width: 768) {
+      .title {
+        text-align: start;
+      }
+    }
+  }
+}
