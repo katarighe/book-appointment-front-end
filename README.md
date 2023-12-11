@@ -74,7 +74,7 @@ The **Book A Doctor appointments (Frontend)** is a responsive React application 
   </ul>
 </details>
 
-<!-- Features -->
+<!-- FEATURES -->
 
 ### Key Features <a name="key-features"></a>
 
@@ -152,17 +152,34 @@ npm install
 
 ### Usage <a name="usage"></a>
 
-- In order to use this project you either create branch to add more features.
-- But in order to run the project run `npm run dev`
-- Run npm run build when you're done.
+- Install dependencies
+
+```bash
+npm i 
+or
+npm install
+```
+- Start the development server
+```bash
+npm start
+```
+
+- Test the frontend project
+```bash
+npm run test
+```
+
+- To run the p project run `npm run dev` and then run `npm run build` when you're done.
+
+To add more features in the project, you will neeed to either create a new branch.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Run tests <a name="run-tests"></a>
 
-I have added the linters or tests in order to avoid anykind of typos and ensure the good practices in this project. So while using this repository if you need to check your work in html and css you can use below commands
+To ensure code quality and prevent typos, we've integrated linters and tests into this project. 
 
-- In order to run the linter test on index.html:
+For your convenience, you can use the following commands to check your HTML and CSS files while working in this repository:
 
 ```sh
   npx eslint "**/*.{js,jsx}"
@@ -274,13 +291,19 @@ This project is [MIT](./LICENSE) licensed.
 
 <!-- ![screenshot](./src/assets/images/home.png) -->
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Details Page <a name="details"></a>
 
 <!-- ![screenshot](./src/assets/images/details.png) -->
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Book Appoinments Page <a name="book-appointments"></a>
 
 <!-- ![screenshot](./src/assets/images/bookAppionment.png) -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Reservations Page <a name="reservations"></a>
 
