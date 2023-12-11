@@ -1,9 +1,11 @@
+
 import { Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDoctor } from '../../Redux/Features/doctorSlice';
 import { Link } from 'react-router-dom';
 import './BookAppointment.scss';
 import { getAppointmentDetails } from '../../Redux/Features/appointmentSlice';
+
 
 function BookAppointments() {
   const { allDoctors, isLoading } = useSelector(selectDoctor);

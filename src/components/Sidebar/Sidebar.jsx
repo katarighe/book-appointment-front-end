@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Sidebar.scss';
 import { SidebarData } from './SidebarData';
 import { NavLink } from 'react-router-dom';
@@ -8,7 +9,6 @@ import { useGlobalHooks } from '../../Hooks/globalHooks';
 import { useSelector } from 'react-redux';
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { selectUserData } from '../../Redux/Features/userAuthSlice';
-import PropTypes from 'prop-types';
 
 function Sidebar({ close }) {
   const toggle = useSelector(selectGlobal);
@@ -66,7 +66,9 @@ function Sidebar({ close }) {
     </main>
   );
 }
+
 Sidebar.propTypes = {
   close: PropTypes.func,
 };
+
 export default Sidebar;

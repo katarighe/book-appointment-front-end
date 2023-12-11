@@ -8,8 +8,10 @@ const initialState = {
 };
 
 export const addDoctors = createAsyncThunk(
+
   'doctors/addDoctors',
   async (userData, thunkAPI) => {
+
     try {
       const response = await API.addDoctors(userData);
       return response.data.data;

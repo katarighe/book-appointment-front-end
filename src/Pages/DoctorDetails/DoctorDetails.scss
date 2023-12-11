@@ -1,9 +1,11 @@
 .doctorDetails {
   margin: 2em auto;
+
   figure {
     border-radius: 20px;
     height: 80vh;
     overflow: hidden;
+
     img {
       object-fit: cover;
       object-position: top center;
@@ -13,6 +15,7 @@
   .greyBg {
     background: var(--Grey5);
     width: 100%;
+
     p {
       font-weight: 600;
       padding: 0.5em 1em;
