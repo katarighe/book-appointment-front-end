@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { getDoctors } from '../../Redux/Features/doctorSlice';
-import DeleteDoctor from '../ManageDocors/DeleteDoctor.css'
+import { getDoctors, deleteDoctors } from '../../api/apis'; 
+import DeleteDoctor from '../ManageDocors/DeleteDoctor.css';
+
+let fetched = false;
 
 function ManageDoctors() {
   const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
@@ -21,7 +23,7 @@ function ManageDoctors() {
     }
   }, []);
   const deleteDoc = (id) => {
-    dispatch(deleteDoctorThunk(id));
+    dispatch(deleteDoctors(id));
   };
 
   return (
