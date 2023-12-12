@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookDoctor Component renders BookDoctor component snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="bookDoctor d-flex flex-column "
+  >
+    <section
+      class="d-flex"
+    >
+      <div
+        class="back "
+      >
+        <svg
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+          />
+        </svg>
+      </div>
+    </section>
+    <section
+      class=" d-flex flex-column align-items-center"
+    >
+      <h3
+        class="my-3"
+      >
+         Book Appointment with Doctor Dr. Example
+      </h3>
+      <form
+        class="col-12 col-md-8 mx-auto"
+      >
+        <div
+          class="my-3 col-12"
+        >
+          <label
+            for="User Name"
+          >
+             User Name
+          </label>
+          <input
+            class="form-control"
+            id="username"
+            minlength="3"
+            placeholder="Enter user name"
+            required=""
+            type="text"
+            value="John Doe"
+          />
+        </div>
+        <div
+          class="my-3 col-12"
+        >
+          <label
+            for="User ID"
+          >
+             User ID
+          </label>
+          <input
+            class="form-control"
+            id="user_id"
+            minlength="3"
+            placeholder="Enter user id"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="my-3 col-12"
+        >
+          <label
+            for="Doctor Name"
+          >
+             Doctor Name
+          </label>
+          <input
+            class="form-control"
+            id="doctorname"
+            minlength="3"
+            placeholder="Enter doctor name"
+            required=""
+            type="text"
+            value="Dr. Example"
+          />
+        </div>
+        <div
+          class="my-3 col-12"
+        >
+          <label
+            for="Doctor ID"
+          >
+             Doctor ID
+          </label>
+          <input
+            class="form-control"
+            id="doctor_id"
+            minlength="3"
+            placeholder="Enter doctor id"
+            required=""
+            type="text"
+            value="123"
+          />
+        </div>
+        <div
+          class="my-3 col-12"
+        >
+          <label
+            for="Date of appointment"
+          >
+             Date of appointment
+          </label>
+          <input
+            class="form-control"
+            id="date_of_appointment"
+            required=""
+            type="date"
+            value=""
+          />
+        </div>
+        <div
+          class="mt-3"
+        >
+          <button
+            class="main-btn col-12"
+            type="submit"
+          >
+            Book Now
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+</DocumentFragment>
+`;

@@ -84,6 +84,4 @@ describe('AddDoctor Component', () => {
       });
     });
   });
-
-  // Add more test cases as needed
 });
