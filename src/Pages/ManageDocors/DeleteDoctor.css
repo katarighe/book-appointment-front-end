@@ -37,7 +37,7 @@
   .listDoctor {
     display: grid;
     grid-template-columns: 1fr;
-    width: 90%;
+    width: 89%;
     gap: 10px;
     padding: 2rem;
   }
