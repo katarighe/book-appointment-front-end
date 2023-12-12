@@ -12,17 +12,6 @@
     }
   }
 
-  .greyBg {
-    background: var(--Grey5);
-    width: 100%;
-
-    p {
-      font-weight: 600;
-      padding: 0.5em 1em;
-      font-size: 0.9rem;
-    }
-  }
-
   .whiteBg {
     background: var(--white);
     width: 100%;
@@ -32,5 +21,16 @@
       padding: 0.7em 1em;
       font-size: 0.9rem;
     }
+  }
+}
+ 
+.greyBg {
+  background: var(--Grey5);
+  width: 100%;
+
+  p {
+    font-weight: 600;
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
   }
 }
