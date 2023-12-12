@@ -19,9 +19,7 @@ export const useCookies = () => {
     Cookies.set(tokenName, token, cookieOptions);
   };
 
-  const getTokenCookie = (tokenName) => {
-    return Cookies.get(tokenName);
-  };
+  const getTokenCookie = (tokenName) => Cookies.get(tokenName);
 
   const removeTokenCookie = (tokenName) => {
     Cookies.remove(tokenName);

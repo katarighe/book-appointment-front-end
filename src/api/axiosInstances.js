@@ -9,7 +9,7 @@ baseAPI.interceptors.request.use(async (config) => {
   const userToken = Cookies.get('bookADocUserToken');
   // If userToken exists, set 'Authorization' and 'x-access-token' headers to the user token
   if (userToken) {
-    config.headers['Authorization'] = `Bearer ${userToken}`;
+    config.headers.Authorization = `Bearer ${userToken}`;
     config.headers['x-access-token'] = userToken;
   }
 

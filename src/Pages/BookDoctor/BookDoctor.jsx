@@ -4,12 +4,12 @@ import './BookDoctor.scss';
 import { useNavigate } from 'react-router-dom';
 import { BsCaretLeft } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserData } from '../../Redux/Features/userAuthSlice';
+import { Spinner } from 'react-bootstrap';
 import {
   createAppointment,
   selectAppointment,
 } from '../../Redux/Features/appointmentSlice';
-import { Spinner } from 'react-bootstrap';
+import { selectUserData } from '../../Redux/Features/userAuthSlice';
 
 function BookDoctor() {
   const { showAlert } = useSweetAlert();
@@ -48,10 +48,10 @@ function BookDoctor() {
   };
 
   return (
-    <main className='bookDoctor d-flex flex-column '>
-      <section className='d-flex'>
+    <main className="bookDoctor d-flex flex-column ">
+      <section className="d-flex">
         <div
-          className='back '
+          className="back "
           onClick={() => {
             navigate(-1);
           }}
@@ -60,79 +60,81 @@ function BookDoctor() {
         </div>
       </section>
 
-      <section className=' d-flex flex-column align-items-center'>
-        <h3 className='my-3'>
+      <section className=" d-flex flex-column align-items-center">
+        <h3 className="my-3">
           {' '}
-          Book Appointment with Doctor {bookingData.doctorname}
+          Book Appointment with Doctor
+          {' '}
+          {bookingData.doctorname}
         </h3>
 
-        <form onSubmit={handleAddDoctor} className='col-12 col-md-8 mx-auto'>
-          <div className='my-3 col-12'>
-            <label htmlFor='User Name'> User Name</label>
+        <form onSubmit={handleAddDoctor} className="col-12 col-md-8 mx-auto">
+          <div className="my-3 col-12">
+            <label htmlFor="User Name"> User Name</label>
             <input
-              type='text'
-              id='username'
-              placeholder='Enter user name'
+              type="text"
+              id="username"
+              placeholder="Enter user name"
               value={bookingData.username}
-              className='form-control'
+              className="form-control"
               onChange={handleChange}
               minLength={3}
               required
             />
           </div>
-          <div className='my-3 col-12'>
-            <label htmlFor='User ID'> User ID</label>
+          <div className="my-3 col-12">
+            <label htmlFor="User ID"> User ID</label>
             <input
-              type='text'
-              id='user_id'
-              placeholder='Enter user id'
+              type="text"
+              id="user_id"
+              placeholder="Enter user id"
               value={bookingData.user_id}
-              className='form-control'
+              className="form-control"
               onChange={handleChange}
               minLength={3}
               required
             />
           </div>
-          <div className='my-3 col-12'>
-            <label htmlFor='Doctor Name'> Doctor Name</label>
+          <div className="my-3 col-12">
+            <label htmlFor="Doctor Name"> Doctor Name</label>
             <input
-              type='text'
-              id='doctorname'
-              placeholder='Enter doctor name'
+              type="text"
+              id="doctorname"
+              placeholder="Enter doctor name"
               value={bookingData.doctorname}
-              className='form-control'
+              className="form-control"
               onChange={handleChange}
               minLength={3}
               required
             />
           </div>
-          <div className='my-3 col-12'>
-            <label htmlFor='Doctor ID'> Doctor ID</label>
+          <div className="my-3 col-12">
+            <label htmlFor="Doctor ID"> Doctor ID</label>
             <input
-              type='text'
-              id='doctor_id'
-              placeholder='Enter doctor id'
+              type="text"
+              id="doctor_id"
+              placeholder="Enter doctor id"
               value={bookingData.doctor_id}
-              className='form-control'
+              className="form-control"
               onChange={handleChange}
               minLength={3}
               required
             />
           </div>
 
-          <div className='my-3 col-12'>
-            <label htmlFor='Date of appointment'> Date of appointment</label>
+          <div className="my-3 col-12">
+            <label htmlFor="Date of appointment"> Date of appointment</label>
             <input
-              type='date'
-              id='date_of_appointment'
+              type="date"
+              id="date_of_appointment"
               value={bookingData.date_of_appointment}
-              className='form-control'
+              className="form-control"
               onChange={handleChange}
               required
             />
           </div>
-          <div className='mt-3'>
-            <button className='main-btn col-12' type='submit'>
+          <div className="mt-3">
+            <button className="main-btn col-12" type="submit">
               {isLoading ? <Spinner /> : 'Book Now'}
             </button>
           </div>

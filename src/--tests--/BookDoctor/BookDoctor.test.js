@@ -3,10 +3,10 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { MemoryRouter } from 'react-router-dom';
 import BookDoctor from '../../Pages/BookDoctor/BookDoctor';
 import { createAppointment, selectAppointment } from '../../Redux/Features/appointmentSlice';
 import { selectUserData } from '../../Redux/Features/userAuthSlice';
-import { MemoryRouter } from 'react-router-dom';
 
 // Mock Redux store
 const mockStore = configureStore([]);
@@ -38,10 +38,10 @@ describe('BookDoctor Component', () => {
     const { asFragment } = render(
       <Provider store={store}>
         <MemoryRouter>
-        <BookDoctor />
+          <BookDoctor />
         </MemoryRouter>
-        
-      </Provider>
+
+      </Provider>,
     );
 
     // Use the Jest snapshot matcher to compare the rendered component with the snapshot

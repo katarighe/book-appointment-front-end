@@ -27,12 +27,11 @@ const allReducers = combineReducers({
 
 const mainStores = configureStore({
   reducer: allReducers,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
 });
 
 export const makeStore = () => {
@@ -41,30 +40,28 @@ export const makeStore = () => {
 
   if (isServer) {
     return mainStores;
-  } else {
-    // We need to persist on client side
-
-    const persistConfig = {
-      key: 'BookDoctor',
-      storage,
-    };
-
-    const persistedReducer = persistReducer(persistConfig, allReducers);
-
-    let store = configureStore({
-      reducer: persistedReducer,
-      middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-          serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-          },
-        }),
-    });
-
-    store._persistor = persistStore(store);
-
-    return store;
   }
+  // We need to persist on client side
+
+  const persistConfig = {
+    key: 'BookDoctor',
+    storage,
+  };
+
+  const persistedReducer = persistReducer(persistConfig, allReducers);
+
+  const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  });
+
+  store._persistor = persistStore(store);
+
+  return store;
 };
 
 const store = makeStore();

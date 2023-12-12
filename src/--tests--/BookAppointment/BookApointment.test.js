@@ -2,9 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { MemoryRouter } from 'react-router-dom';
 import BookAppointments from '../../Pages/BookAppointment/BookAppointments';
 import { selectDoctor } from '../../Redux/Features/doctorSlice';
-import { MemoryRouter } from 'react-router-dom';
 
 // Mock Redux store
 const mockStore = configureStore([]);
@@ -33,10 +33,10 @@ describe('BookAppointments Component', () => {
     render(
       <Provider store={store}>
         <MemoryRouter>
-        <BookAppointments />
+          <BookAppointments />
         </MemoryRouter>
-        
-      </Provider>
+
+      </Provider>,
     );
 
     expect(screen).toMatchSnapshot();

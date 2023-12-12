@@ -19,6 +19,4 @@ const showAlert = (message) => {
   });
 };
 
-export const useSweetAlert = () => {
-  return { showAlert, Toast };
-};
+export const useSweetAlert = () => ({ showAlert, Toast });

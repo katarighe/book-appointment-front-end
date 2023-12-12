@@ -23,7 +23,9 @@ const initialState = {
 function Signup() {
   const [passwordType, setPasswordType] = useState(false);
   const [userData, setUserData] = useState(initialState);
-  const { loading, setLoading, errors, setErrors } = useGlobalHooks();
+  const {
+    loading, setLoading, errors, setErrors,
+  } = useGlobalHooks();
 
   const navigate = useNavigate();
 
@@ -98,11 +100,11 @@ function Signup() {
 
   return (
     <div
-      className={` userSignup d-flex flex-column flex-md-row justify-content-between`}
+      className=" userSignup d-flex flex-column flex-md-row justify-content-between"
     >
-      <section className='d-flex flex-column aside py-3'>
-        <aside className='col-12 col-md-7 mx-auto container'>
-          <div className='col-3 my-3'>
+      <section className="d-flex flex-column aside py-3">
+        <aside className="col-12 col-md-7 mx-auto container">
+          <div className="col-3 my-3">
             <BrandLogo />
           </div>
           <h2> Welcome,</h2>
@@ -110,22 +112,22 @@ function Signup() {
 
           <form
             onSubmit={handleSignUp}
-            className={` form d-flex flex-column justify-content-between mt-3`}
+            className=" form d-flex flex-column justify-content-between mt-3"
           >
-            <section className='mb-2'>
-              <label htmlFor='Compnay Name' className='labelTitle'>
+            <section className="mb-2">
+              <label htmlFor="Compnay Name" className="labelTitle">
                 {' '}
                 Name
               </label>
               <div>
                 <input
                   ref={inputRef}
-                  type='text'
-                  id='name'
-                  name='Company Name'
+                  type="text"
+                  id="name"
+                  name="Company Name"
                   onChange={handleChange}
                   defaultValue={userData.name}
-                  placeholder=' Enter company name'
+                  placeholder=" Enter company name"
                   required
                   className={` formInput ${
                     errors.errMessage === 'empty' ? 'errors' : ''
@@ -134,53 +136,55 @@ function Signup() {
               </div>
             </section>
 
-            <section className='mb-2'>
-              <label htmlFor='email' className='labelTitle'>
+            <section className="mb-2">
+              <label htmlFor="email" className="labelTitle">
                 {' '}
                 Email
               </label>
               <div>
                 <input
                   ref={inputRef}
-                  type='email'
-                  id='email'
-                  name='email'
-                  placeholder='Enter your email'
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
                   onChange={handleChange}
                   defaultValue={userData.email}
                   required
-                  className=' formInput form-control'
+                  className=" formInput form-control"
                 />
               </div>
             </section>
-            <section className='col-12 mb-2'>
-              <div className='password'>
-                <label htmlFor='password' className='labelTitle'>
+            <section className="col-12 mb-2">
+              <div className="password">
+                <label htmlFor="password" className="labelTitle">
                   {' '}
-                  Password{' '}
+                  Password
+                  {' '}
                 </label>
-                <div className='inputContainer d-flex flex-row align-items-center'>
+                <div className="inputContainer d-flex flex-row align-items-center">
                   <input
                     ref={inputRef}
-                    id='password'
-                    type={!passwordType['password'] ? 'password' : 'text'}
-                    name='password'
-                    placeholder='Enter password'
+                    id="password"
+                    type={!passwordType.password ? 'password' : 'text'}
+                    name="password"
+                    placeholder="Enter password"
                     onChange={handleChange}
                     defaultValue={userData.password}
                     className={` formInput ${
-                      errors.errMessage === 'weakPassword' ||
-                      errors.errMessage === 'empty'
+                      errors.errMessage === 'weakPassword'
+                      || errors.errMessage === 'empty'
                         ? 'errors'
                         : ''
                     }  form-control `}
                     required
-                  />{' '}
+                  />
+                  {' '}
                   <div
                     onClick={() => showPassword('password')}
-                    className='icon'
+                    className="icon"
                   >
-                    {!passwordType['password'] ? (
+                    {!passwordType.password ? (
                       <BsFillEyeSlashFill />
                     ) : (
                       <BsFillEyeFill />
@@ -189,43 +193,44 @@ function Signup() {
                 </div>
 
                 {errors.errMessage === 'weakPassword' && (
-                  <span className='error_message'>
+                  <span className="error_message">
                     Password should be 6-20 characters
                   </span>
                 )}
               </div>
 
-              <div className='mt-3'>
-                <label htmlFor='password_confirmation' className='labelTitle'>
+              <div className="mt-3">
+                <label htmlFor="password_confirmation" className="labelTitle">
                   Re-enter Password
                 </label>
                 <div
-                  className={`inputContainer d-flex flex-row align-items-center `}
+                  className="inputContainer d-flex flex-row align-items-center "
                 >
                   <input
                     ref={inputRef}
-                    id='password_confirmation'
+                    id="password_confirmation"
                     type={
-                      !passwordType['password_confirmation']
+                      !passwordType.password_confirmation
                         ? 'password'
                         : 'text'
                     }
-                    name='password'
+                    name="password"
                     onChange={handleChange}
                     defaultValue={userData.password_confirmation}
-                    placeholder='Re-enter password'
+                    placeholder="Re-enter password"
                     required
                     className={`formInput  ${
                       errors.errMessage === 'password_confirmation'
                         ? 'errors'
                         : ''
                     } form-control `}
-                  />{' '}
+                  />
+                  {' '}
                   <div
                     onClick={() => showPassword('password_confirmation')}
-                    className='icon'
+                    className="icon"
                   >
-                    {!passwordType['password_confirmation'] ? (
+                    {!passwordType.password_confirmation ? (
                       <BsFillEyeSlashFill />
                     ) : (
                       <BsFillEyeFill />
@@ -233,7 +238,7 @@ function Signup() {
                   </div>
                 </div>
                 {errors.errMessage === 'password_confirmation' ? (
-                  <span className='error_message'>
+                  <span className="error_message">
                     {' '}
                     Your password do not match
                   </span>
@@ -243,36 +248,40 @@ function Signup() {
               </div>
             </section>
 
-            <section className='mt-2'>
-              <label htmlFor='email' className='labelTitle'>
+            <section className="mt-2">
+              <label htmlFor="email" className="labelTitle">
                 {' '}
                 Profile Image Url
               </label>
               <div>
                 <input
                   ref={inputRef}
-                  type='url'
-                  id='image_url'
-                  name='image_url'
-                  placeholder='Please enter your profile image url here'
+                  type="url"
+                  id="image_url"
+                  name="image_url"
+                  placeholder="Please enter your profile image url here"
                   onChange={handleChange}
                   defaultValue={userData.image_url}
                   required
-                  className=' formInput form-control'
+                  className=" formInput form-control"
                 />
               </div>
             </section>
 
-            <section className=' col-12 text-center'>
-              <button className='main-btn col-12 mt-2' type='submit'>
+            <section className=" col-12 text-center">
+              <button className="main-btn col-12 mt-2" type="submit">
                 {loading ? <Spinner /> : 'Sign Up'}
               </button>
-              {<span className='error_message'> {errors.errMessage} </span>}
+              <span className="error_message">
+                {' '}
+                {errors.errMessage}
+                {' '}
+              </span>
             </section>
 
-            <p className='mt-2 '>
+            <p className="mt-2 ">
               Already have an account?
-              <Link className='Login' to='/signin'>
+              <Link className="Login" to="/signin">
                 <strong> Login </strong>
               </Link>
             </p>

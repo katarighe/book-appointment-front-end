@@ -2,12 +2,12 @@ import { useRef, useState } from 'react';
 import './Auths.scss';
 import { BsFillEyeSlashFill, BsFillEyeFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import BrandLogo from '../../components/BrandLogo';
 import RightSide from '../../components/RightSide';
-import { Spinner } from 'react-bootstrap';
 import * as API from '../../api/apis';
 import { useSweetAlert } from '../../Hooks/useSweetAlert';
-import { useDispatch } from 'react-redux';
 import { useCookies } from '../../Hooks/cookiesHook';
 import { useGlobalHooks } from '../../Hooks/globalHooks';
 import { userAuthData } from '../../Redux/Features/userAuthSlice';
@@ -15,7 +15,9 @@ import { userAuthData } from '../../Redux/Features/userAuthSlice';
 function Signin() {
   const [passwordType, setPasswordType] = useState(false);
   const [userData, setUserData] = useState({ email: '', password: '' });
-  const { loading, setLoading, errors, setErrors } = useGlobalHooks();
+  const {
+    loading, setLoading, errors, setErrors,
+  } = useGlobalHooks();
 
   const navigate = useNavigate();
 
@@ -62,11 +64,11 @@ function Signin() {
 
   return (
     <div
-      className={` SignIn d-flex flex-column flex-md-row justify-content-between`}
+      className=" SignIn d-flex flex-column flex-md-row justify-content-between"
     >
-      <section className='d-flex flex-column aside'>
-        <aside className='col-12 col-md-7 mx-auto container'>
-          <div className='col-3 my-3'>
+      <section className="d-flex flex-column aside">
+        <aside className="col-12 col-md-7 mx-auto container">
+          <div className="col-3 my-3">
             <BrandLogo />
           </div>
           <h2> Welcome back,</h2>
@@ -74,52 +76,54 @@ function Signin() {
 
           <form
             onSubmit={handleSignIn}
-            className={` form d-flex flex-column justify-content-between mt-5`}
+            className=" form d-flex flex-column justify-content-between mt-5"
           >
-            <section className='mb-3'>
-              <label htmlFor='email' className='labelTitle'>
+            <section className="mb-3">
+              <label htmlFor="email" className="labelTitle">
                 {' '}
                 Email
               </label>
               <div>
                 <input
                   ref={inputRef}
-                  type='email'
-                  id='email'
-                  name='email'
-                  placeholder='example@gmail.com'
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@gmail.com"
                   defaultValue={userData.email}
                   onChange={handleChange}
                   required
-                  className=' formInput form-control'
+                  className=" formInput form-control"
                 />
               </div>
             </section>
-            <section className='col-12 mb-3'>
-              <div className=''>
-                <label htmlFor='password' className='labelTitle'>
+            <section className="col-12 mb-3">
+              <div className="">
+                <label htmlFor="password" className="labelTitle">
                   {' '}
-                  Password{' '}
+                  Password
+                  {' '}
                 </label>
                 <div
-                  className={` inputContainer d-flex flex-row align-items-center`}
+                  className=" inputContainer d-flex flex-row align-items-center"
                 >
                   <input
                     ref={inputRef}
-                    id='password'
-                    type={!passwordType['password'] ? 'password' : 'text'}
-                    name='password'
-                    placeholder='enter your password'
+                    id="password"
+                    type={!passwordType.password ? 'password' : 'text'}
+                    name="password"
+                    placeholder="enter your password"
                     defaultValue={userData.password}
                     onChange={handleChange}
-                    className='formInput form-control '
+                    className="formInput form-control "
                     required
-                  />{' '}
+                  />
+                  {' '}
                   <div
                     onClick={() => showPassword('password')}
-                    className='icon'
+                    className="icon"
                   >
-                    {!passwordType['password'] ? (
+                    {!passwordType.password ? (
                       <BsFillEyeSlashFill />
                     ) : (
                       <BsFillEyeFill />
@@ -129,16 +133,20 @@ function Signin() {
               </div>
             </section>
 
-            <div className=' col-12 text-center'>
-              <button className='main-btn col-12 mt-1' type='submit'>
+            <div className=" col-12 text-center">
+              <button className="main-btn col-12 mt-1" type="submit">
                 {loading ? <Spinner /> : 'Log In'}
               </button>
-              {<span className='error_message'> {errors.errMessage} </span>}
+              <span className="error_message">
+                {' '}
+                {errors.errMessage}
+                {' '}
+              </span>
             </div>
 
-            <p className='mt-3 text-center'>
+            <p className="mt-3 text-center">
               Don’t have an account?
-              <Link className='Login' to='/signup'>
+              <Link className="Login" to="/signup">
                 <strong> Sign up for free </strong>
               </Link>
             </p>

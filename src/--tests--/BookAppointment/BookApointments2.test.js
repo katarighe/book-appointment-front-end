@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider, useDispatch } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import BookAppointments from '../../Pages/BookAppointment/BookAppointments';
 import { MemoryRouter } from 'react-router-dom';
+import BookAppointments from '../../Pages/BookAppointment/BookAppointments';
 import { getAppointmentDetails } from '../../Redux/Features/appointmentSlice';
 
 // Mock Redux store
@@ -44,7 +44,7 @@ describe('BookAppointments Component', () => {
         <MemoryRouter>
           <BookAppointments />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
 
     // Simulate a click on the "Book Appointment" link
@@ -57,7 +57,7 @@ describe('BookAppointments Component', () => {
         name: 'Dr. John Doe',
         imageUrl: 'https://example.com/doctor.jpg',
         specialization: 'Cardiologist',
-      })
+      }),
     );
   });
 });

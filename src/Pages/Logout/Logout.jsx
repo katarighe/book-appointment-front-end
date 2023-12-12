@@ -8,16 +8,16 @@ function Logout({ id, close }) {
   const { logoutUser } = useAuthHook();
 
   return (
-    <div className='container-logout  '>
+    <div className="container-logout  ">
       <PopUp id={id}>
-        <div className='logout  '>
+        <div className="logout  ">
           <h1>Log Out?</h1>
           <p>Are you sure you want to Log out of your account?</p>
-          <div className='buttons'>
-            <Link to='/' className='outline-dark' onClick={close}>
+          <div className="buttons">
+            <Link to="/" className="outline-dark" onClick={close}>
               Cancel
             </Link>
-            <button className='main-btn log' onClick={logoutUser}>
+            <button className="main-btn log" onClick={logoutUser}>
               Logout
             </button>
           </div>

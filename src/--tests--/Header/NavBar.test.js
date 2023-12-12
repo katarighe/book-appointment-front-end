@@ -28,10 +28,9 @@ describe('NavBar Component', () => {
     render(
       <Provider store={store}>
         <NavBar />
-      </Provider>
+      </Provider>,
     );
 
     expect(screen.getByText(/John Doe/i)).toBeInTheDocument();
-
   });
 });

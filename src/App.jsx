@@ -1,18 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import generalRoutes from './Layout/Routes/GeneralRutes';
 import dashboardRoutes from './Layout/Routes/DashboardRoutes';
 import DashboardLayout from './Layout/DashboardLayout';
 import NotFound from './Pages/404/NotFound';
-import { useEffect } from 'react';
 import { useAuthHook } from './Hooks/authHook';
-import { useSelector } from 'react-redux';
 import { selectUserData } from './Redux/Features/userAuthSlice';
 
 function App() {
   const { authUser } = useSelector(selectUserData);
 
-  const userRole =
-    Object.keys(authUser).length !== 0 ? authUser.image.record.role : '';
+  const userRole = Object.keys(authUser).length !== 0 ? authUser.image.record.role : '';
 
   const { getSessionTime, logoutUser, SESSION_TIMEOUT } = useAuthHook();
 
@@ -40,7 +39,7 @@ function App() {
     return () => clearTimeout(checkSession);
   }, []);
   return (
-    <main className='App'>
+    <main className="App">
       <Router>
         <Routes>
           {generalRoutes.map((route, idx) => (
@@ -54,7 +53,7 @@ function App() {
             />
           ))}
 
-          <Route path='*' element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </main>

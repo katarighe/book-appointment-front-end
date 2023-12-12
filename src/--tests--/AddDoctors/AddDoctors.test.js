@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import {
+  render, screen, fireEvent, waitFor,
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AddDoctor from '../../Pages/AddDoctor/AddDoctor';
 import * as API from '../../api/apis';
@@ -43,7 +45,7 @@ describe('AddDoctor Component', () => {
     API.addDoctors.mockResolvedValue({ statusText: 'Created' });
 
     render(<AddDoctor />);
-    
+
     fireEvent.change(screen.getByPlaceholderText('Enter full name'), { target: { value: 'John Doe' } });
 
     // Submit the form
@@ -58,5 +60,4 @@ describe('AddDoctor Component', () => {
       expect(mockGlobalHooks.setLoading).toHaveBeenCalledWith(false);
     });
   });
-  
 });

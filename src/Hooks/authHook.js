@@ -22,9 +22,7 @@ export const useAuthHook = () => {
     clearTimeout(logoutTimer);
   };
 
-  const getSessionTime = () => {
-    return sessionStorage.getItem('loggedInTime');
-  };
+  const getSessionTime = () => sessionStorage.getItem('loggedInTime');
 
   const logoutUser = () => {
     // Perform logout logic

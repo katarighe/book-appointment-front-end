@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './AddDoctor.scss';
 
+import { Spinner } from 'react-bootstrap';
 import * as API from '../../api/apis';
 
-import { Spinner } from 'react-bootstrap';
 import { useGlobalHooks } from '../../Hooks/globalHooks';
 
 const inputData = [
@@ -57,7 +57,9 @@ const initialState = {
 function AddDoctor() {
   const [userData, setUserData] = useState(initialState);
   const [message, setMessage] = useState('');
-  const { errors, setErrors, loading, setLoading } = useGlobalHooks();
+  const {
+    errors, setErrors, loading, setLoading,
+  } = useGlobalHooks();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -135,20 +137,26 @@ function AddDoctor() {
   };
 
   return (
-    <main className='addDoctor d-flex flex-column'>
-      <p className='text-center text-success'> {message} </p>
+    <main className="addDoctor d-flex flex-column">
+      <p className="text-center text-success">
+        {' '}
+        {message}
+        {' '}
+      </p>
 
-      <form onSubmit={handleAddDoctor} className='col-12 col-md-8 mx-auto'>
-        {inputData.map(({ id, label, type, placeholder }) => (
-          <div key={id} className='my-2 col-12'>
-            <label htmlFor='label' className='mb-1'>
+      <form onSubmit={handleAddDoctor} className="col-12 col-md-8 mx-auto">
+        {inputData.map(({
+          id, label, type, placeholder,
+        }) => (
+          <div key={id} className="my-2 col-12">
+            <label htmlFor="label" className="mb-1">
               {' '}
               {label}
             </label>
             {type === 'textarea' ? (
               <textarea
                 id={id}
-                className='form-control'
+                className="form-control"
                 rows={4}
                 placeholder={placeholder}
                 value={userData[id]}
@@ -160,7 +168,7 @@ function AddDoctor() {
               <input
                 id={id}
                 type={type}
-                className='form-control'
+                className="form-control"
                 placeholder={placeholder}
                 value={userData[id]}
                 onChange={handleChange}
@@ -171,12 +179,18 @@ function AddDoctor() {
           </div>
         ))}
 
-        <div className='mt-3'>
-          <button className='main-btn' type='submit'>
+        <div className="mt-3">
+          <button className="main-btn" type="submit">
             {loading ? <Spinner /> : 'Add Doctor'}
           </button>
         </div>
-        {errors.error && <p className='error_message'> {errors.errMessage} </p>}
+        {errors.error && (
+        <p className="error_message">
+          {' '}
+          {errors.errMessage}
+          {' '}
+        </p>
+        )}
       </form>
     </main>
   );

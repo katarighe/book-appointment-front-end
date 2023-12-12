@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { useSelector } from 'react-redux';
+import { selectGlobal } from '../../Redux/Features/globalSlice';
 import './PopUp.scss';
 import { useGlobalHooks } from '../../Hooks/globalHooks';
 
@@ -30,8 +30,8 @@ function PopUp({ id, children }) {
   return (
     <>
       {show[id] && (
-        <div className='popUp_container' ref={popupRef}>
-          <section className='wrapper'>{children}</section>
+        <div className="popUp_container" ref={popupRef}>
+          <section className="wrapper">{children}</section>
         </div>
       )}
     </>
