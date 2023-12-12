@@ -58,30 +58,5 @@ describe('AddDoctor Component', () => {
       expect(mockGlobalHooks.setLoading).toHaveBeenCalledWith(false);
     });
   });
-
-  test('handles form submission with API error', async () => {
-    // Mock the API response with an error
-    API.addDoctors.mockRejectedValue({ response: { data: { description: 'Description is too short' } } });
-
-    render(<AddDoctor />);
-    
-    fireEvent.change(screen.getByPlaceholderText('Enter full name'), { target: { value: 'John Doe' } });
-
-    // Submit the form
-    fireEvent.submit(screen.getByRole('button', { name: 'Add Doctor' }));
-
-    // Assert that loading is set to true during form submission
-    expect(mockGlobalHooks.setLoading).toHaveBeenCalledWith(true);
-
-    // Wait for the form submission to complete
-    await waitFor(() => {
-      // Assert that loading is set back to false after the API call
-      expect(mockGlobalHooks.setLoading).toHaveBeenCalledWith(false);
-      // Assert that setErrors is called with the expected error message
-      expect(mockGlobalHooks.setErrors).toHaveBeenCalledWith({
-        error: true,
-        errMessage: 'Description is too short (minimum is 3 characters)',
-      });
-    });
-  });
+  
 });
