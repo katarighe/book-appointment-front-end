@@ -1,0 +1,22 @@
+.listContainer {
+  width: 90%;
+  margin: 1em auto;
+}
+
+.docName {
+  padding: 10px;
+}
+
+.delete {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.dltBtn {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  color: red;
+  cursor: pointer;
+}

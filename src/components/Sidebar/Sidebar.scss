@@ -1,0 +1,29 @@
+.sidebarContainer {
+  .sidebar {
+    .tabTitle {
+      cursor: pointer;
+
+      h4 {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      @media screen and (max-width: 900px) {
+        .active,
+        .notActive {
+          padding: 15px;
+          display: flex;
+        }
+      }
+    }
+
+    ul {
+      h5 {
+        font-size: 1rem;
+        color: var(--Grey3);
+        margin-top: 2em;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
