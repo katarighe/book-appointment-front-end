@@ -46,7 +46,7 @@ function ManageDoctors() {
               </div>
             ))
           ) : (
-            <p>No Doctors 😔</p>
+            <p>No doctors 😔</p>
           )}
         </div>
       </section>

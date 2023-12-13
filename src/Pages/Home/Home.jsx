@@ -24,7 +24,7 @@ function Home() {
         <h1> Meet our specialist </h1>
         <p className='mt-2'>
           {' '}
-          Please book an appointment with doctor of your choice today
+          please book an appointment with doctor of your choice today
         </p>
       </div>
       <section className='d-flex flex-wrap'>

@@ -1,3 +1,7 @@
+.listCard {
+  background: var(--mainColor);
+}
+
 .myAppointment {
   h3 {
     font-weight: 700;
@@ -11,9 +15,5 @@
 
   span {
     color: var(--accentColor);
-  }
-
-  .listCard {
-    background: var(--mainColor);
   }
 }
