@@ -25,6 +25,17 @@ const BookDoctor = () => {
     doctorname: appointmentDetails.name,
   });
 
+  // Function to get the formatted current date
+  function getFormattedDate() {
+    // ge current date
+    const currentDate = new Date();
+
+    // Format current date to match the string type from input date
+    const formattedDate = currentDate.toISOString().split('T')[0];
+
+    return formattedDate;
+  }
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -128,6 +139,7 @@ const BookDoctor = () => {
               value={bookingData.date_of_appointment}
               className='form-control'
               onChange={handleChange}
+              min={getFormattedDate()}
               required
             />
           </div>
