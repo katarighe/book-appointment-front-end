@@ -48,6 +48,55 @@ body::-webkit-scrollbar {
   height: 0.1em;
 }
 
+/* === Styles for carousel arrorw start=== */
+
+.slick-prev::before,
+.slick-next::before {
+  display: flex !important;
+  align-items: center;
+  z-index: 10000;
+  background: var(--mainColor) !important;
+  width: 70px;
+  height: 50px;
+  font-size: 20px;
+  opacity: 1;
+}
+
+.slick-prev::before {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  justify-content: flex-end;
+  padding-right: 0.3em;
+}
+
+.slick-next::before {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  justify-content: flex-start;
+  padding-left: 0.3em;
+}
+
+.slick-list {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.slick-prev {
+  left: -9%;
+  padding: 0.5em 1em;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.slick-next {
+  right: 6%;
+  padding: 0.5em 1em;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* === Styles for carousel arrorw end === */
+
 .App {
   width: 100%;
 }
@@ -329,37 +378,35 @@ hr {
   }
 }
 
-@media screen and (min-width: 900px) {
-  .showSideBar {
-    width: 30%;
-    position: fixed;
-    left: 0;
-    transition: all 0.5s ease-in-out;
-    background: var(--white);
-    border-right: solid 1px var(--Grey5);
-    z-index: 1;
+@media screen and (min-width: 768px) {
+  .slick-prev::before,
+  .slick-next::before {
+    display: flex !important;
+    z-index: 1000;
+    background: var(--mainColor) !important;
+    width: 70px;
+    height: 50px;
+    font-size: 20px;
+    opacity: 1;
   }
 
-  h1,
-  h2 {
-    font-size: 3.2rem;
-    line-height: 1.1;
-    font-weight: 700;
+  .slick-list {
+    width: 90%;
+    margin: 0 auto;
   }
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
+  .slick-prev {
+    left: 0%;
+    padding: 0.5em 1em;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
-  h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  p {
-    font-size: 1rem;
-    font-weight: 400;
+  .slick-next {
+    right: 4%;
+    padding: 0.5em 1em;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 }
 

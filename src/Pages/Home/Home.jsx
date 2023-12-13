@@ -4,11 +4,45 @@ import { getDoctors, selectDoctor } from '../../Redux/Features/doctorSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Spinner } from 'react-bootstrap';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
+import Slider from 'react-slick';
 
 function Home() {
   const dispatch = useDispatch();
   const { allDoctors, isLoading } = useSelector(selectDoctor);
   console.log(allDoctors);
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     dispatch(getDoctors());
@@ -27,16 +61,18 @@ function Home() {
           please book an appointment with doctor of your choice today
         </p>
       </div>
-      <section className='d-flex flex-wrap'>
-        {allDoctors.map((item) => (
-          <DoctorCard
-            key={item?.id}
-            id={item?.id}
-            imageUrl={item?.imageUrl}
-            name={item?.name}
-            description={item?.description}
-          />
-        ))}
+      <section className=''>
+        <Slider {...settings}>
+          {allDoctors.map((item) => (
+            <DoctorCard
+              key={item?.id}
+              id={item?.id}
+              imageUrl={item?.imageUrl}
+              name={item?.name}
+              description={item?.description}
+            />
+          ))}
+        </Slider>
       </section>
     </main>
   );
