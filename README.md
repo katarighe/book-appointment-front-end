@@ -299,7 +299,7 @@ This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Book Appoinments Page <a name="book-appointments"></a>
+### Book Appointments Page <a name="book-appointments"></a>
 
 <!-- ![screenshot](./src/assets/images/bookAppionment.png) -->
 
