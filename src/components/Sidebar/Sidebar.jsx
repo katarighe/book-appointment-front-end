@@ -22,7 +22,7 @@ function Sidebar({ close }) {
     userRole === 'user'
       ? SidebarData.filter(
           (route) =>
-            route.title !== 'Manage Doctors' && route.title !== 'Add Doctors',
+            route.title !== 'Delete Doctors' && route.title !== 'Add Doctors',
         )
       : SidebarData;
 

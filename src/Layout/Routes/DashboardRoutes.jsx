@@ -1,9 +1,9 @@
 import AddDoctor from '../../Pages/AddDoctor/AddDoctor';
 import BookAppointments from '../../Pages/BookAppointment/BookAppointments';
 import BookDoctor from '../../Pages/BookDoctor/BookDoctor';
+import DeleteDoctors from '../../Pages/DeleteDoctors/DeleteDoctors';
 import DoctorDetails from '../../Pages/DoctorDetails/DoctorDetails';
 import Home from '../../Pages/Home/Home';
-import ManageDoctors from '../../Pages/ManageDocors/ManageDoctors';
 import MyAppointments from '../../Pages/MyAppointment/MyAppointments';
 
 const dashboardRoutes = (userRole) => {
@@ -32,13 +32,13 @@ const dashboardRoutes = (userRole) => {
       element: <MyAppointments />,
     },
     {
-      path: '/managedoctors',
-      name: 'Manage Doctors',
-      element: <ManageDoctors />,
+      path: '/deletedoctors',
+      name: 'Delete Doctors',
+      element: <DeleteDoctors />,
     },
     {
       path: '/adddoctors',
-      name: 'Add Doctor',
+      name: 'Add Doctors',
       element: <AddDoctor />,
     },
   ];
@@ -46,7 +46,7 @@ const dashboardRoutes = (userRole) => {
   if (userRole === 'user') {
     return allRoutes.filter(
       (route) =>
-        route.name !== 'Manage Doctors' && route.name !== 'Manage Doctors',
+        route.name !== 'Add Doctors' && route.name !== 'Delete Doctors',
     );
   }
 
