@@ -29,7 +29,7 @@ export const SidebarData = [
 
   {
     id: 'tab5',
-    title: 'Manage Doctors',
-    url: '/managedoctors',
+    title: 'Delete Doctors',
+    url: '/deletedoctors',
   },
 ];
