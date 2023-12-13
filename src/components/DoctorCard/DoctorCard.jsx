@@ -3,7 +3,7 @@ import './DoctorCard.scss';
 import { BsFacebook, BsInstagram, BsTwitterX } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
-function DoctorCard({ id, imageUrl, name, description }) {
+const DoctorCard = ({ id, imageUrl, name, description }) => {
   return (
     <Link
       to={`doctordetails/${id}`}
@@ -25,7 +25,7 @@ function DoctorCard({ id, imageUrl, name, description }) {
       </div>
     </Link>
   );
-}
+};
 
 DoctorCard.propTypes = {
   id: PropTypes.string,

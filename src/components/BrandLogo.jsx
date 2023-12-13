@@ -1,7 +1,7 @@
 import Logo from '../assets/bookadoc-logo.png';
 import { Link } from 'react-router-dom';
 
-function BrandLogo() {
+const BrandLogo = () => {
   return (
     <Link to='/'>
       <figure>
@@ -10,6 +10,6 @@ function BrandLogo() {
       </figure>
     </Link>
   );
-}
+};
 
 export default BrandLogo;

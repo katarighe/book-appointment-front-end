@@ -20,7 +20,7 @@ const initialState = {
   image_url: '',
 };
 
-function Signup() {
+const Signup = () => {
   const [passwordType, setPasswordType] = useState(false);
   const [userData, setUserData] = useState(initialState);
   const { loading, setLoading, errors, setErrors } = useGlobalHooks();
@@ -282,6 +282,6 @@ function Signup() {
       <RightSide />
     </div>
   );
-}
+};
 
 export default Signup;

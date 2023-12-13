@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getAppointments,
@@ -11,8 +10,7 @@ import { FaUserDoctor } from 'react-icons/fa6';
 import { BsCalendarDate } from 'react-icons/bs';
 import './MyAppointment.scss';
 
-
-function MyAppointments() {
+const MyAppointments = () => {
   const dispatch = useDispatch();
   const { allAppointments, isLoading, isError } =
     useSelector(selectAppointment);
@@ -63,6 +61,6 @@ function MyAppointments() {
       )}
     </main>
   );
-}
+};
 
 export default MyAppointments;

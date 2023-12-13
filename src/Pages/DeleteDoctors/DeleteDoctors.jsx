@@ -8,7 +8,7 @@ import {
 } from '../../Redux/Features/doctorSlice';
 import { Spinner } from 'react-bootstrap';
 
-function DeleteDoctors() {
+const DeleteDoctors = () => {
   const { allDoctors, isLoading } = useSelector(selectDoctor);
 
   const dispatch = useDispatch();
@@ -59,6 +59,6 @@ function DeleteDoctors() {
       </section>
     </>
   );
-}
+};
 
 export default DeleteDoctors;

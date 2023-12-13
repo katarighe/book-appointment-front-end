@@ -4,7 +4,7 @@ import { selectUserData } from '../../Redux/Features/userAuthSlice';
 import { useSelector } from 'react-redux';
 // import Spinner from '../../spinner/Spinner';
 
-function NavBar() {
+const NavBar = () => {
   const { authUser } = useSelector(selectUserData);
 
   const userLogo = authUser.image_url;
@@ -27,6 +27,6 @@ function NavBar() {
       </header>
     </main>
   );
-}
+};
 
 export default NavBar;

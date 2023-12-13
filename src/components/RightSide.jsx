@@ -1,7 +1,7 @@
 import '../Pages/Auth/Auths.scss';
 
-function RightSide() {
+const RightSide = () => {
   return <section className='right d-none d-lg-flex flex-column'></section>;
-}
+};
 
 export default RightSide;

@@ -54,7 +54,7 @@ const initialState = {
   image_url: '',
 };
 
-function AddDoctor() {
+const AddDoctor = () => {
   const [userData, setUserData] = useState(initialState);
   const [message, setMessage] = useState('');
   const { errors, setErrors, loading, setLoading } = useGlobalHooks();
@@ -180,6 +180,6 @@ function AddDoctor() {
       </form>
     </main>
   );
-}
+};
 
 export default AddDoctor;

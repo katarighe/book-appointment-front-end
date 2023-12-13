@@ -8,7 +8,7 @@ import { useAuthHook } from './Hooks/authHook';
 import { useSelector } from 'react-redux';
 import { selectUserData } from './Redux/Features/userAuthSlice';
 
-function App() {
+const App = () => {
   const { authUser } = useSelector(selectUserData);
 
   const userRole =
@@ -59,6 +59,6 @@ function App() {
       </Router>
     </main>
   );
-}
+};
 
 export default App;

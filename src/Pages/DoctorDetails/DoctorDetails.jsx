@@ -5,7 +5,7 @@ import './DoctorDetails.scss';
 import { BsCaretLeft } from 'react-icons/bs';
 import { getAppointmentDetails } from '../../Redux/Features/appointmentSlice';
 
-function DoctorDetails() {
+const DoctorDetails = () => {
   const { id } = useParams();
   const { allDoctors } = useSelector(selectDoctor);
   const navigate = useNavigate();
@@ -94,6 +94,6 @@ function DoctorDetails() {
       </section>
     </main>
   );
-}
+};
 
 export default DoctorDetails;

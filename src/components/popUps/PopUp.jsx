@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import './PopUp.scss';
 import { useGlobalHooks } from '../../Hooks/globalHooks';
 
-function PopUp({ id, children }) {
+const PopUp = ({ id, children }) => {
   const show = useSelector(selectGlobal);
   const { handleShow } = useGlobalHooks();
   const popupRef = useRef();
@@ -36,7 +36,7 @@ function PopUp({ id, children }) {
       )}
     </>
   );
-}
+};
 
 PopUp.propTypes = {
   id: PropTypes.string,

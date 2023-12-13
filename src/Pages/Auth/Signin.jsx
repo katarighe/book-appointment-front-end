@@ -12,7 +12,7 @@ import { useCookies } from '../../Hooks/cookiesHook';
 import { useGlobalHooks } from '../../Hooks/globalHooks';
 import { userAuthData } from '../../Redux/Features/userAuthSlice';
 
-function Signin() {
+const Signin = () => {
   const [passwordType, setPasswordType] = useState(false);
   const [userData, setUserData] = useState({ email: '', password: '' });
   const { loading, setLoading, errors, setErrors } = useGlobalHooks();
@@ -148,6 +148,6 @@ function Signin() {
       <RightSide />
     </div>
   );
-}
+};
 
 export default Signin;

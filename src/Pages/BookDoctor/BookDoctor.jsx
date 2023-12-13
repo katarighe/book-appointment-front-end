@@ -11,7 +11,7 @@ import {
 } from '../../Redux/Features/appointmentSlice';
 import { Spinner } from 'react-bootstrap';
 
-function BookDoctor() {
+const BookDoctor = () => {
   const { showAlert } = useSweetAlert();
   const dispatch = useDispatch();
   const { appointmentDetails, isLoading } = useSelector(selectAppointment);
@@ -140,6 +140,6 @@ function BookDoctor() {
       </section>
     </main>
   );
-}
+};
 
 export default BookDoctor;

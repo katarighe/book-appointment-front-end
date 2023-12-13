@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PopUp from '../../components/popUps/PopUp';
 import { useAuthHook } from '../../Hooks/authHook';
 
-function Logout({ id, close }) {
+const Logout = ({ id, close }) => {
   const { logoutUser } = useAuthHook();
 
   return (
@@ -25,7 +25,7 @@ function Logout({ id, close }) {
       </PopUp>
     </div>
   );
-}
+};
 
 Logout.propTypes = {
   id: PropTypes.string,

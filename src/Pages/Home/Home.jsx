@@ -6,7 +6,7 @@ import { Spinner } from 'react-bootstrap';
 import DoctorCard from '../../components/DoctorCard/DoctorCard';
 import Slider from 'react-slick';
 
-function Home() {
+const Home = () => {
   const dispatch = useDispatch();
   const { allDoctors, isLoading } = useSelector(selectDoctor);
   console.log(allDoctors);
@@ -76,6 +76,6 @@ function Home() {
       </section>
     </main>
   );
-}
+};
 
 export default Home;

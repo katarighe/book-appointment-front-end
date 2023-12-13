@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectGlobal } from '../../Redux/Features/globalSlice';
 import { selectUserData } from '../../Redux/Features/userAuthSlice';
 
-function Sidebar({ close }) {
+const Sidebar = ({ close }) => {
   const toggle = useSelector(selectGlobal);
   const { handleShow } = useGlobalHooks();
   const { authUser } = useSelector(selectUserData);
@@ -65,7 +65,7 @@ function Sidebar({ close }) {
       )}
     </main>
   );
-}
+};
 
 Sidebar.propTypes = {
   close: PropTypes.func,
