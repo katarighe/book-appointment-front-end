@@ -108,7 +108,7 @@ The main features of this app include:
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)
+- [Live Demo Link](https://book-doctor-appointment-frontend.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -289,24 +289,24 @@ This project is [MIT](./LICENSE) licensed.
 
 ### Homepage <a name="home"></a>
 
-<!-- ![screenshot](./src/assets/images/home.png) -->
+![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/f9915baf-d64b-4f1c-b83a-16d00e91165f)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Details Page <a name="details"></a>
 
-<!-- ![screenshot](./src/assets/images/details.png) -->
+![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/fd7ad322-d4b8-422b-9734-d5271e2379f6)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Book Appointments Page <a name="book-appointments"></a>
 
-<!-- ![screenshot](./src/assets/images/bookAppionment.png) -->
+![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/162c2cd0-3631-4c43-a38d-c60a02153ae7)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Reservations Page <a name="reservations"></a>
 
-<!-- ![screenshot](./src/assets/images/reservations.png) -->
+![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/1c4990d2-8bb7-4e9f-8b2d-1aa2ab37b59c)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
