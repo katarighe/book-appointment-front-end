@@ -287,7 +287,7 @@ This project is [MIT](./LICENSE) licensed.
 <!-- PROJECT GALLERY -->
 ## 🖼️ Project Gallery <a name="gallery"></a>
 
-### Homepage <a name="home"></a>
+### Home <a name="home"></a>
 
 **Before login**
 ![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/8d8a67a3-f38a-4d1d-ba89-4e2fb3f8a418)
@@ -297,19 +297,19 @@ This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Details Page <a name="details"></a>
+### Details <a name="details"></a>
 
 ![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/fd7ad322-d4b8-422b-9734-d5271e2379f6)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Book Appointments Page <a name="book-appointments"></a>
+### Book Appointments <a name="book-appointments"></a>
 
 ![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/162c2cd0-3631-4c43-a38d-c60a02153ae7)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Reservations Page <a name="reservations"></a>
+### Reservations <a name="reservations"></a>
 
 ![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/1c4990d2-8bb7-4e9f-8b2d-1aa2ab37b59c)
 
