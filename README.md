@@ -289,6 +289,10 @@ This project is [MIT](./LICENSE) licensed.
 
 ### Homepage <a name="home"></a>
 
+**Before login**
+![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/8d8a67a3-f38a-4d1d-ba89-4e2fb3f8a418)
+
+**After login**
 ![image](https://github.com/katarighe/book-appointment-front-end/assets/80690364/f9915baf-d64b-4f1c-b83a-16d00e91165f)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
