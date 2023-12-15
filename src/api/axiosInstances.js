@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
-const baseUrl = 'http://127.0.0.1:3000/v1';
+const baseUrl = 'https://book-appointment.onrender.com/v1';
 
 const baseAPI = axios.create({ baseURL: baseUrl });
 
